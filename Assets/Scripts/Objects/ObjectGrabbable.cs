@@ -6,7 +6,7 @@ public class ObjectGrabbable : MonoBehaviour
 {
     private Rigidbody objectRigidBody;
     private Transform objectGrabPointTransform;
-
+    public string value = "Test";
     private void Awake()
     {
         objectRigidBody = GetComponent<Rigidbody>();        
