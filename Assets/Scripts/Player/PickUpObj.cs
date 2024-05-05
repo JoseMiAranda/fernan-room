@@ -6,9 +6,11 @@ public class PickUpObj : MonoBehaviour
 {
     [SerializeField] public Transform playerCameraTransform;
     [SerializeField] public Transform objectGrabPointTransform;
+    [SerializeField] public GameObject gunGrabPoint;
     [SerializeField] public LayerMask pickUpLayerMask;
 
     private ObjectGrabbable objectGrabbable;
+    private Gun gun;
 
     void Update()
     {
@@ -18,7 +20,11 @@ public class PickUpObj : MonoBehaviour
                 float pickUpDistance = 3f;
                if (Physics.Raycast(playerCameraTransform.position, playerCameraTransform.forward, out RaycastHit raycastHit, pickUpDistance, pickUpLayerMask))
                 {
-                    if(raycastHit.transform.TryGetComponent(out objectGrabbable))
+                    if (raycastHit.transform.TryGetComponent(out gun))
+                    {
+                        gun.Grab(gunGrabPoint);
+                    }
+                    else if(raycastHit.transform.TryGetComponent(out objectGrabbable))
                     {
                         objectGrabbable.Grab(objectGrabPointTransform);
                     }
