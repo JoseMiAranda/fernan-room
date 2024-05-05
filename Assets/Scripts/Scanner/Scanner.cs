@@ -9,10 +9,11 @@ public class Scanner : MonoBehaviour
 {
     private string findedObj = "Cube";
     private bool readingObject = false;
+    private bool stopReading = false;
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(!readingObject)
+        if(!stopReading && !readingObject)
         {
             ObjectGrabbable objectGrabbable = collision.gameObject.GetComponent<ObjectGrabbable>();
         
@@ -22,6 +23,8 @@ public class Scanner : MonoBehaviour
                 if (objectGrabbable.value == findedObj)
                 {
                     Debug.Log("That's a Cube");
+                    stopReading = true;
+                    GameManager.Instance.RoundTwo();
                 }
                 else
                 {
