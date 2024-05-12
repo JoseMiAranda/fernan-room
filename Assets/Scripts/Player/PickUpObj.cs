@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PickUpObj : MonoBehaviour
@@ -11,20 +12,25 @@ public class PickUpObj : MonoBehaviour
 
     private ObjectGrabbable objectGrabbable;
     private Gun gun;
+    private Note note;
 
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.E)) {
-            if(objectGrabbable == null) { 
-                // Not carring a object, try to grab
+            if(objectGrabbable == null && note == null) { 
+                // Not carring a object or reading, try to grab
                 float pickUpDistance = 3f;
                if (Physics.Raycast(playerCameraTransform.position, playerCameraTransform.forward, out RaycastHit raycastHit, pickUpDistance, pickUpLayerMask))
                 {
-                    if (raycastHit.transform.TryGetComponent(out gun))
+                    if(raycastHit.transform.TryGetComponent(out note)) // Read Note
+                    {
+                        note.Read(GameManager.Instance.getCurrentMessage());
+                    }
+                    if (raycastHit.transform.TryGetComponent(out gun)) // Take Gun
                     {
                         gun.Grab(gunGrabPoint);
                     }
-                    else if(raycastHit.transform.TryGetComponent(out objectGrabbable))
+                    else if(raycastHit.transform.TryGetComponent(out objectGrabbable)) // Gran Object
                     {
                         objectGrabbable.Grab(objectGrabPointTransform);
                     }
@@ -32,9 +38,16 @@ public class PickUpObj : MonoBehaviour
             }
             else
             {
-                // Currently carrying something, drop
-                objectGrabbable.Drop();
-                objectGrabbable = null;
+                if(note != null)
+                {
+                    note.UnRead();
+                    note = null;
+                }
+                else // Currently carrying something, drop
+                {
+                    objectGrabbable.Drop();
+                    objectGrabbable = null;
+                }
             }
         }
     }
