@@ -12,7 +12,8 @@ public class PlayerMovement : MonoBehaviour
     
     // AXIS Y
     private float gravity = -9.81f;
-    
+    private float bendDownPercentage = 0.5f;
+
     public Transform groundCheck;
     public float sphereRadius = 0.3f;
     public LayerMask groundMask;
@@ -38,6 +39,16 @@ public class PlayerMovement : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
             velocity.y = Mathf.Sqrt(jumpHeight * -2 * gravity); // Make Player jump
+        }
+
+        if (Input.GetKeyDown(KeyCode.LeftControl)) 
+        {
+            Vector3 localScale = characterController.transform.localScale;
+            characterController.transform.localScale = new Vector3(localScale.x, localScale.y * bendDownPercentage, localScale.z); // Make player bend down
+        } else if (Input.GetKeyUp(KeyCode.LeftControl))
+        {
+            Vector3 localScale = characterController.transform.localScale;
+            characterController.transform.localScale = new Vector3(localScale.x, localScale.y / bendDownPercentage, localScale.z); // Make player stad up
         }
 
         Vector3 move = transform.right * x + transform.forward * z; // Make Player move horizontally
