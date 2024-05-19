@@ -41,7 +41,18 @@ public class GameManager : MonoBehaviour
             RoundOne();
         } else
         {
-            Debug.LogWarning("There are more Game Managers!");
+            Debug.LogWarning("There are one more Game Managers!");
+        }
+    }
+
+    private void Update()
+    {
+        if(Input.GetKeyUp(KeyCode.Q)) {
+            // Reset grabbable objects 
+            foreach (var i in Object.FindObjectsOfType<ObjectGrabbable>())
+            {
+                i.resetTransform();
+            }
         }
     }
 

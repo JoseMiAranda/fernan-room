@@ -1,12 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class ObjectGrabbable : MonoBehaviour
 {
+    private Vector3 initialPosition;
+    private Quaternion initialRotation;
+    private Vector3 initialScale;
+
     private Rigidbody objectRigidBody;
     private Transform objectGrabPointTransform;
-    public string value = "Test";
+
+    public string value = "Test"; // Value for Scanner
+
     private float scrollSensitivity = 150f;
     private float lerpSpeed = 10f;
     private float minDistance = 1f;
@@ -15,6 +22,10 @@ public class ObjectGrabbable : MonoBehaviour
 
     private void Awake()
     {
+        initialPosition = transform.position;
+        initialRotation = transform.rotation;
+        initialScale = transform.localScale;
+
         objectRigidBody = GetComponent<Rigidbody>();
     }
 
@@ -45,6 +56,18 @@ public class ObjectGrabbable : MonoBehaviour
             Vector3 newPosition = Vector3.Lerp(transform.position, targetPosition, Time.deltaTime * lerpSpeed);
 
             objectRigidBody.MovePosition(newPosition);
-        }
+        } 
+    }
+
+    public void resetTransform()
+    {
+        // Default transform
+        transform.position = initialPosition;
+        transform.rotation = initialRotation;
+        transform.localScale = initialScale;
+
+        // If objects has movement
+        objectRigidBody.velocity = Vector3.zero;
+        objectRigidBody.angularVelocity = Vector3.zero;
     }
 }
