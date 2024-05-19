@@ -1,8 +1,6 @@
 using Newtonsoft.Json;
-using Unity.VisualScripting;
-using UnityEngine;
 
-public class DashboardTexts : MonoBehaviour
+public class GameTexts
 {
     [JsonProperty("guidances")]
     public Guidances Guidances { get; set; }
@@ -15,10 +13,25 @@ public partial class Guidances
 {
     [JsonProperty("pressEToUseDashboard")]
     public string PressEToUseDashboard { get; set; }
+
+    [JsonProperty("resolvePuzzle")]
+    public string ResolvePuzzle { get; set; }
 }
 
-public partial class Rounds
+public class Rounds
 {
     [JsonProperty("one")]
-    public string One { get; set; }
+    public Round One { get; set; }
+
+    [JsonProperty("two")]
+    public Round Two { get; set; }
+}
+
+public class Round
+{
+    [JsonProperty("level")]
+    public string Level { get; set; }
+
+    [JsonProperty("proof")]
+    public string Proof { get; set; }
 }

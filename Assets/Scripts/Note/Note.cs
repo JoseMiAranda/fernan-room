@@ -15,10 +15,12 @@ public class Note : MonoBehaviour
         noteText = canvas.transform.Find("NoteImage").GetChild(0).GetComponent<TextMeshProUGUI>(); // get NoteText
     }
 
-    public void Read(string text)
+    public void Read(string text, float size)
     {
+        noteText.fontSize = size;
         noteText.text = text;
         canvas.gameObject.SetActive(true); // Makes canvas visible
+        GameManager.Instance.ResolvePuzzle();
     }
 
     public void UnRead() {
