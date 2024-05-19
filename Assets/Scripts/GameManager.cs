@@ -1,7 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System.IO;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 using Unity.VisualScripting;
 
 public class GameManager : MonoBehaviour
@@ -10,15 +11,23 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
     private static TextMeshProUGUI roundText;
     private static TextMeshProUGUI guidanceText;
-
-    private const string SHOW_BOARD = "Pulse E sobre la pizarra";
-
+    private string jsonPath = @"D:\UnityVR\fernan-room\Assets\Data\Jsons\board_texts.json";
+    private DashboardTexts dashboardTexts;
     private void Awake()
     {
+        // Take data from json. Info: https://www.newtonsoft.com/json/help/html/serializingjson.htm
+        using (StreamReader streamReader = new(jsonPath))
+        using (JsonTextReader jsonReader = new(streamReader))
+        {
+            JsonSerializer serializer = new JsonSerializer();
+            dashboardTexts = serializer.Deserialize<DashboardTexts>(jsonReader);
+        }
+
+        // Obtain Text canvas
         roundText = GameObject.FindWithTag("Round").GetComponent<TextMeshProUGUI>();
         guidanceText = GameObject.FindWithTag("Guidance").GetComponent<TextMeshProUGUI>();
 
-        if (Instance == null)
+        if (Instance == null) // Singleton pattern
         {
             Instance = this;
             RoundOne();
@@ -31,15 +40,15 @@ public class GameManager : MonoBehaviour
     public void RoundOne()
     {
         roundText.text = "Ronda 1";
-        guidanceText.text = SHOW_BOARD;
+        guidanceText.text = dashboardTexts.Guidances.PressEToUseDashboard;
 
-        currentMessage = "Find a cube!!!!";
+        currentMessage = dashboardTexts.Rounds.One;
     }
 
     public void RoundTwo()
     {
         roundText.text = "Ronda 2";
-        guidanceText.text = SHOW_BOARD;
+        guidanceText.text = dashboardTexts.Guidances.PressEToUseDashboard;
 
         currentMessage = "Take the weapon!!!";
     }
