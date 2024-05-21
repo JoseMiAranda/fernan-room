@@ -20,6 +20,9 @@ public partial class Guidances
 
 public class Rounds
 {
+    [JsonProperty("introduction")]
+    public Round Introduction { get; set; }
+
     [JsonProperty("one")]
     public Round One { get; set; }
 

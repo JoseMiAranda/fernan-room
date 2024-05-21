@@ -16,12 +16,16 @@ public class GameManager : MonoBehaviour
 
     // Font sizes
     private float currentSize;
-    private float normalNoteSize = 36f; // For short proofs
+    private float largeNoteSize = 36f; // For short proofs
+    private float mediumNoteSize = 24f; // For normal proof
     private float smallNoteSize = 18; // For large proofs
+
+    // Round control
+    int round = 0;
 
     private void Awake()
     {
-        currentSize = normalNoteSize;
+        currentSize = mediumNoteSize;
 
         // Take data from json. Info: https://www.newtonsoft.com/json/help/html/serializingjson.htm
         using (StreamReader streamReader = new(jsonPath))
@@ -38,7 +42,7 @@ public class GameManager : MonoBehaviour
         if (Instance == null) // Singleton pattern
         {
             Instance = this;
-            RoundOne();
+            Introduction();
         } else
         {
             Debug.LogWarning("There are one more Game Managers!");
@@ -56,8 +60,18 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void Introduction()
+    {
+        currentSize = mediumNoteSize;
+        roundText.text = gameTexts.Rounds.Introduction.Level;
+        guidanceText.text = gameTexts.Guidances.PressEToUseDashboard;
+        proof = gameTexts.Rounds.Introduction.Proof;
+    }
+
     public void RoundOne()
     {
+        round = 1;
+        currentSize = largeNoteSize;
         roundText.text = gameTexts.Rounds.One.Level;
         guidanceText.text = gameTexts.Guidances.PressEToUseDashboard;
         proof = gameTexts.Rounds.One.Proof;
@@ -65,7 +79,8 @@ public class GameManager : MonoBehaviour
 
     public void RoundTwo()
     {
-        currentSize = smallNoteSize;
+        round = 2;
+        currentSize = mediumNoteSize;
         roundText.text = gameTexts.Rounds.Two.Level; 
         guidanceText.text = gameTexts.Guidances.PressEToUseDashboard;
         proof = gameTexts.Rounds.Two.Proof;
@@ -84,5 +99,10 @@ public class GameManager : MonoBehaviour
     public float getSize()
     {
         return currentSize;
+    }
+
+    public float getRound()
+    {
+        return round;
     }
 }

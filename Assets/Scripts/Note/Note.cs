@@ -25,5 +25,9 @@ public class Note : MonoBehaviour
 
     public void UnRead() {
         canvas.gameObject.SetActive(false); // Makes canvas invisible
+        if (GameManager.Instance.getRound() == 0) // Check if we are in introduction
+        {
+            GameManager.Instance.RoundOne();
+        }
     }
 }
