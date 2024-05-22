@@ -80,7 +80,7 @@ public class GameManager : MonoBehaviour
     public void RoundTwo()
     {
         round = 2;
-        currentSize = mediumNoteSize;
+        currentSize = smallNoteSize;
         roundText.text = gameTexts.Rounds.Two.Level; 
         guidanceText.text = gameTexts.Guidances.PressEToUseDashboard;
         proof = gameTexts.Rounds.Two.Proof;
