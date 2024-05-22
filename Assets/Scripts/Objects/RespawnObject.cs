@@ -1,11 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class RespawnObject : MonoBehaviour
 {
-    public Transform respawnPoint;
+    private Transform respawnPoint;
 
+    private void Awake()
+    {
+        respawnPoint = GameObject.FindGameObjectWithTag("Respawn").GetComponent<Transform>();
+    }
 
     private void OnCollisionEnter(Collision collision)
     {

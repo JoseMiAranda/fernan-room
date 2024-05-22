@@ -23,6 +23,9 @@ public class GameManager : MonoBehaviour
     // Round control
     int round = 0;
 
+    // Gun 2
+    public GameObject gun; // Needs to be instantiated in script inspector
+
     private void Awake()
     {
         currentSize = mediumNoteSize;
@@ -80,6 +83,8 @@ public class GameManager : MonoBehaviour
     public void RoundTwo()
     {
         round = 2;
+        Transform respawnPoint = GameObject.FindGameObjectWithTag("Respawn").GetComponent<Transform>();
+        Instantiate(gun, respawnPoint.position, respawnPoint.rotation);
         currentSize = smallNoteSize;
         roundText.text = gameTexts.Rounds.Two.Level; 
         guidanceText.text = gameTexts.Guidances.PressEToUseDashboard;
