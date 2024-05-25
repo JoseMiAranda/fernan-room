@@ -28,6 +28,9 @@ public class Rounds
 
     [JsonProperty("two")]
     public Round Two { get; set; }
+
+    [JsonProperty("three")]
+    public Round Three { get; set; }
 }
 
 public class Round

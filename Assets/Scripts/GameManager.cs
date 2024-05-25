@@ -96,6 +96,10 @@ public class GameManager : MonoBehaviour
     {
         round = 3;
         Destroy(gunInstance);
+        currentSize = mediumNoteSize;
+        roundText.text = gameTexts.Rounds.Three.Level;
+        guidanceText.text = gameTexts.Guidances.PressEToUseDashboard;
+        proof = gameTexts.Rounds.Three.Proof;
     }
 
     public void ResolvePuzzle()
