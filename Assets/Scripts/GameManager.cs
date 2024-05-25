@@ -23,8 +23,9 @@ public class GameManager : MonoBehaviour
     // Round control
     int round = 0;
 
-    // Gun 2
-    public GameObject gun; // Needs to be instantiated in script inspector
+    // Round 2
+    public GameObject gun; // Needs to be referenced in script inspector. That's the prefab, If you deleted this, you destroy prefab in your system
+    private GameObject gunInstance; // That instace can be destroyed
 
     private void Awake()
     {
@@ -84,11 +85,17 @@ public class GameManager : MonoBehaviour
     {
         round = 2;
         Transform respawnPoint = GameObject.FindGameObjectWithTag("Respawn").GetComponent<Transform>();
-        Instantiate(gun, respawnPoint.position, respawnPoint.rotation);
+        gunInstance = Instantiate(gun, respawnPoint.position, respawnPoint.rotation);
         currentSize = smallNoteSize;
         roundText.text = gameTexts.Rounds.Two.Level; 
         guidanceText.text = gameTexts.Guidances.PressEToUseDashboard;
         proof = gameTexts.Rounds.Two.Proof;
+    }
+
+    public void RoundThree()
+    {
+        round = 3;
+        Destroy(gunInstance);
     }
 
     public void ResolvePuzzle()
