@@ -8,6 +8,7 @@ public class FoodScanner : MonoBehaviour
     List<ObjectGrabbable> ingredients = new();
     Collider sphereCollider;
 
+    public GameObject explosionEffect;
     public float radius = 5f;
     public float explosionForce = 70f;
 
@@ -55,6 +56,7 @@ public class FoodScanner : MonoBehaviour
 
     private void Explode()
     {
+        Instantiate(explosionEffect, transform.position, transform.rotation);
         Collider[] colliders = Physics.OverlapSphere(transform.position, radius);
 
         foreach (var collider in colliders)
