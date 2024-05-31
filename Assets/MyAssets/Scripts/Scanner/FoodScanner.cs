@@ -32,31 +32,36 @@ public class FoodScanner : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (ingredients.Contains(other.gameObject.GetComponent<ObjectGrabbable>())) // Avoid double exit
+        if(GameManager.Instance.getRound() == 3)
         {
-            ingredients.Remove(other.gameObject.GetComponent<ObjectGrabbable>());
+            if (ingredients.Contains(other.gameObject.GetComponent<ObjectGrabbable>())) // Avoid double exit
+            {
+                ingredients.Remove(other.gameObject.GetComponent<ObjectGrabbable>());
+            }
         }
     }
 
     private void CheckIngredients()
     {
-        if(ingredients.Count < 3)
+        if (ingredients.Count < 3)
         {
             return;
         }
-        if(!expectedIngredients.All(ingredient => ingredients.Any(readedIngredient => readedIngredient.value == ingredient))) // Checks ingredients are correct
+        if (!expectedIngredients.All(ingredient => ingredients.Any(readedIngredient => readedIngredient.value == ingredient))) // Checks ingredients are correct
         {
-            Explode();
-        }
-        else
+            Explode(true);
+        } else
         {
-            // Round 4
+            GameManager.Instance.RoundFour();
         }
     }
 
-    private void Explode()
+    public void Explode(bool explosion)
     {
-        Instantiate(explosionEffect, transform.position, transform.rotation);
+        if (explosion)
+        {
+            Instantiate(explosionEffect, transform.position, transform.rotation);
+        }
         Collider[] colliders = Physics.OverlapSphere(transform.position, radius);
 
         foreach (var collider in colliders)
@@ -67,5 +72,15 @@ public class FoodScanner : MonoBehaviour
                 rb.AddExplosionForce(explosionForce * 10, transform.position, radius);
             }
         }
+    }
+
+    public List<ObjectGrabbable> Ingredients()
+    {
+        return ingredients;
+    }
+
+    public Collider Collider()
+    {
+        return sphereCollider;
     }
 }

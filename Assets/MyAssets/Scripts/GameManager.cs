@@ -2,6 +2,7 @@ using UnityEngine;
 using TMPro;
 using System.IO;
 using Newtonsoft.Json;
+using System.Collections.Generic;
 
 public class GameManager : MonoBehaviour
 {
@@ -39,6 +40,7 @@ public class GameManager : MonoBehaviour
     private GameObject gunInstance;
 
     // Round 3
+    public GameObject churro;
     public GameObject foodScanner;
     private GameObject foodScannerInstance;
 
@@ -116,10 +118,46 @@ public class GameManager : MonoBehaviour
         round = 3;
         Destroy(gunInstance);
         foodScannerInstance = Instantiate(foodScanner, scannerRespawnPoint.position, scannerRespawnPoint.rotation);
-        currentSize = mediumNoteSize;
+        currentSize = smallNoteSize;
         roundText.text = gameTexts.Rounds.Three.Level;
         guidanceText.text = gameTexts.Guidances.PressEToUseDashboard;
         proof = gameTexts.Rounds.Three.Proof;
+    }
+
+    public void RoundFour()
+    {
+        round = 4;
+        PartyChurros();
+        Destroy(foodScannerInstance);
+        currentSize = mediumNoteSize;
+        roundText.text = gameTexts.Rounds.Four.Level;
+        guidanceText.text = gameTexts.Guidances.PressEToUseDashboard;
+        proof = gameTexts.Rounds.Four.Proof;
+    }
+
+    private void PartyChurros()
+    {
+        foodScannerInstance.GetComponent<FoodScanner>().Collider().enabled = false;
+
+        Transform foodScannerTransform = foodScannerInstance.GetComponent<FoodScanner>().transform;
+
+        Vector3 position = foodScannerTransform.position;
+        position.y += 0.3f;
+        foodScannerTransform.position = position;
+
+        // Disable correct ingredients
+        List<ObjectGrabbable> ingredients = foodScannerInstance.GetComponent<FoodScanner>().Ingredients();
+        foreach (var ingredient in ingredients)
+        {
+            ingredient.gameObject.SetActive(false);
+        }
+
+        for (int i = 0; i < 11; i++)
+        {
+            Instantiate(churro, foodScannerTransform.position, foodScannerTransform.rotation);
+        }
+
+        foodScannerInstance.GetComponent<FoodScanner>().Explode(false);
     }
 
     public void ResolvePuzzle()
