@@ -1,0 +1,1103 @@
+Using pre-set license
+Built from '2022.3/staging' branch; Version is '2022.3.21f1 (bf09ca542b87) revision 12519882'; Using compiler version '192829333'; Build Type 'Release'
+OS: 'Windows 10  (10.0.19045) 64bit Core' Language: 'es' Physical Memory: 16222 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 1
+
+COMMAND LINE ARGUMENTS:
+D:\Unity2022\2022.3.21f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker4
+-projectPath
+D:/UnityVR/fernan-room
+-logFile
+Logs/AssetImportWorker4.log
+-srvPort
+50609
+Successfully changed project path to: D:/UnityVR/fernan-room
+D:/UnityVR/fernan-room
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=33554432"
+    "memorysetup-bucket-allocator-block-count=8"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-thread-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=33554432"
+    "memorysetup-profiler-bucket-allocator-block-count=8"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=16777216"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+    "memorysetup-allocator-temp-initial-block-size-main=262144"
+    "memorysetup-allocator-temp-initial-block-size-worker=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=33554432"
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gfx=262144"
+Player connection [5232] Host "[IP] 192.168.18.15 [Port] 0 [Flags] 2 [Guid] 385763493 [EditorId] 385763493 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-TPC0601) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
+
+Player connection [5232] Host "[IP] 192.168.18.15 [Port] 0 [Flags] 2 [Guid] 385763493 [EditorId] 385763493 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-TPC0601) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
+
+[Physics::Module] Initialized MultithreadedJobDispatcher with 11 workers.
+Default GameObject Tag: Player already registered
+Refreshing native plugins compatible for Editor in 6.33 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2022.3.21f1 (bf09ca542b87)
+[Subsystems] Discovering subsystems at path D:/Unity2022/2022.3.21f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path D:/UnityVR/fernan-room/Assets
+GfxDevice: creating device client; threaded=0; jobified=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce RTX 2070 Super (ID=0x1ed1)
+    Vendor:   NVIDIA
+    VRAM:     8003 MB
+    Driver:   31.0.15.4626
+Initialize mono
+Mono path[0] = 'D:/Unity2022/2022.3.21f1/Editor/Data/Managed'
+Mono path[1] = 'D:/Unity2022/2022.3.21f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
+Mono config path = 'D:/Unity2022/2022.3.21f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56864
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: D:/Unity2022/2022.3.21f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
+Register platform support module: D:/Unity2022/2022.3.21f1/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll
+Register platform support module: D:/Unity2022/2022.3.21f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.004537 seconds.
+- Loaded All Assemblies, in  0.330 seconds
+Native extension for WindowsStandalone target not found
+Native extension for Android target not found
+Android Extension - Scanning For ADB Devices 191 ms
+Native extension for WebGL target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.527 seconds
+Domain Reload Profiling: 857ms
+	BeginReloadAssembly (96ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (0ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (1ms)
+	RebuildCommonClasses (33ms)
+	RebuildNativeTypeToScriptingClass (11ms)
+	initialDomainReloadingComplete (48ms)
+	LoadAllAssembliesAndSetupDomain (142ms)
+		LoadAssemblies (96ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (140ms)
+			TypeCache.Refresh (139ms)
+				TypeCache.ScanAssembly (126ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (0ms)
+	FinalizeReload (528ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (470ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (304ms)
+			SetLoadedEditorAssemblies (3ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (2ms)
+			ProcessInitializeOnLoadAttributes (115ms)
+			ProcessInitializeOnLoadMethodAttributes (45ms)
+			AfterProcessingInitializeOnLoad (0ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (0ms)
+========================================================================
+Worker process is ready to serve import requests
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory is not a mono symbol file
+- Loaded All Assemblies, in  0.551 seconds
+Refreshing native plugins compatible for Editor in 2.52 ms, found 3 plugins.
+Native extension for WindowsStandalone target not found
+Native extension for Android target not found
+Native extension for WebGL target not found
+Package Manager log level set to [2]
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.534 seconds
+Domain Reload Profiling: 1084ms
+	BeginReloadAssembly (131ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (5ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (20ms)
+	RebuildCommonClasses (32ms)
+	RebuildNativeTypeToScriptingClass (11ms)
+	initialDomainReloadingComplete (35ms)
+	LoadAllAssembliesAndSetupDomain (341ms)
+		LoadAssemblies (236ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (181ms)
+			TypeCache.Refresh (160ms)
+				TypeCache.ScanAssembly (142ms)
+			ScanForSourceGeneratedMonoScriptInfo (15ms)
+			ResolveRequiredComponents (5ms)
+	FinalizeReload (534ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (377ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (22ms)
+			SetLoadedEditorAssemblies (3ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (46ms)
+			ProcessInitializeOnLoadAttributes (285ms)
+			ProcessInitializeOnLoadMethodAttributes (19ms)
+			AfterProcessingInitializeOnLoad (2ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (6ms)
+Default GameObject Tag: Player already registered
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.03 seconds
+Refreshing native plugins compatible for Editor in 2.98 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3193 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 36 unused Assets / (30.8 KB). Loaded Objects now: 3673.
+Memory consumption went from 141.3 MB to 141.3 MB.
+Total: 3.877000 ms (FindLiveObjects: 0.252500 ms CreateObjectMapping: 0.284000 ms MarkObjects: 3.273600 ms  DeleteObjects: 0.065500 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:CustomObjectIndexerAttribute: 9a22284fe3817be447336de3de66b15e -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 77077.356099 seconds.
+  path: Assets/MyAssets/Prefabs/Round_4/SquareBottle.FBX
+  artifactKey: Guid(05593e4c8df301f459ee0a7ea6ab6f29) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Round_4/SquareBottle.FBX using Guid(05593e4c8df301f459ee0a7ea6ab6f29) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd00a6f86c7975bb6148c6e9543a40fa2') in 0.104131 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 21.182827 seconds.
+  path: Assets/MyAssets/Prefabs/Round_4/LargeBottle.FBX
+  artifactKey: Guid(05593e4c8df301f459ee0a7ea6ab6f29) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Round_4/LargeBottle.FBX using Guid(05593e4c8df301f459ee0a7ea6ab6f29) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a4330c8a34f073c2c3341698fee4dfc4') in 0.018455 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 11
+========================================================================
+Received Import Request.
+  Time since last request: 53.973315 seconds.
+  path: Assets/MyAssets/Prefabs/Round_4/Bottle3_1.prefab
+  artifactKey: Guid(e886801f8446ff041ba72ca132555ddf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Round_4/Bottle3_1.prefab using Guid(e886801f8446ff041ba72ca132555ddf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '01ccd51cdf579d6b1d573bc63c1e6a78') in 0.007383 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 11
+========================================================================
+Received Import Request.
+  Time since last request: 16.543526 seconds.
+  path: Assets/MyAssets/Prefabs/Round_4/Bottle.prefab
+  artifactKey: Guid(e886801f8446ff041ba72ca132555ddf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Round_4/Bottle.prefab using Guid(e886801f8446ff041ba72ca132555ddf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3b2f302741672bb810988bfb941318b2') in 0.006375 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 11
+========================================================================
+Received Import Request.
+  Time since last request: 12.623413 seconds.
+  path: Assets/MyAssets/Prefabs/Round_4/SmallBottle.prefab
+  artifactKey: Guid(e886801f8446ff041ba72ca132555ddf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Round_4/SmallBottle.prefab using Guid(e886801f8446ff041ba72ca132555ddf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cc3a003035905b758c6d88a332dcf300') in 0.005807 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 11
+========================================================================
+Received Import Request.
+  Time since last request: 10.560078 seconds.
+  path: Assets/MyAssets/Prefabs/Round_4/LargeBottle.FBX
+  artifactKey: Guid(05593e4c8df301f459ee0a7ea6ab6f29) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Round_4/LargeBottle.FBX using Guid(05593e4c8df301f459ee0a7ea6ab6f29) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5c11fcb647c0b7ff5dd3f038a801cef4') in 0.016023 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 3.697407 seconds.
+  path: Assets/MyAssets/Prefabs/Round_4/Textures
+  artifactKey: Guid(47fca1b9ae90f8e49985313fa19c121e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Round_4/Textures using Guid(47fca1b9ae90f8e49985313fa19c121e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fe8e66236d0c2600b3ad3493dbc754c2') in 0.000449 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 186.604033 seconds.
+  path: Assets/MyAssets/Prefabs/Round_4/Textures/Bottle3_1.prefab
+  artifactKey: Guid(a5e2458eda9b3b54cb46705763a6e4db) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Round_4/Textures/Bottle3_1.prefab using Guid(a5e2458eda9b3b54cb46705763a6e4db) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f30ea2a5c728c1a66483b380fd8c66fb') in 0.015632 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 11
+========================================================================
+Received Import Request.
+  Time since last request: 6.868777 seconds.
+  path: Assets/MyAssets/Prefabs/Round_4/Textures/Bottle3_1.prefab
+  artifactKey: Guid(1a80bc3e6d3bbbe43bda5bf5ac8cdab1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Round_4/Textures/Bottle3_1.prefab using Guid(1a80bc3e6d3bbbe43bda5bf5ac8cdab1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ad4e1ce97fad1c5f743e26a7a6628564') in 0.006911 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 11
+========================================================================
+Received Import Request.
+  Time since last request: 6.998035 seconds.
+  path: Assets/MyAssets/Prefabs/Round_4/Textures/LargeBottle_apple.png
+  artifactKey: Guid(354f58e26f33f8e4f87a880f2b98ad5d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Round_4/Textures/LargeBottle_apple.png using Guid(354f58e26f33f8e4f87a880f2b98ad5d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '60c69b4a54987ab0442a29fd0bb7dba6') in 0.019147 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000044 seconds.
+  path: Assets/MyAssets/Prefabs/Round_4/Textures/SmallBottle_melon.png
+  artifactKey: Guid(d366e653a5925e24a8ff41d64be58e45) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Round_4/Textures/SmallBottle_melon.png using Guid(d366e653a5925e24a8ff41d64be58e45) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '601ed30f394d3d2011a213df91e15432') in 0.007965 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000026 seconds.
+  path: Assets/MyAssets/Prefabs/Round_4/Textures/SmallBottle_pinapple.png
+  artifactKey: Guid(643fb75df5c56ba4abc2566807ada824) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Round_4/Textures/SmallBottle_pinapple.png using Guid(643fb75df5c56ba4abc2566807ada824) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '932266a8f7cebe37a64961ecd03fab38') in 0.016069 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000030 seconds.
+  path: Assets/MyAssets/Prefabs/Round_4/Textures/LargeBottle_pear-and-watermelon.png
+  artifactKey: Guid(67ea63fbf5d72054eb206adfff4ee051) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Round_4/Textures/LargeBottle_pear-and-watermelon.png using Guid(67ea63fbf5d72054eb206adfff4ee051) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5bb4d5c9f3e703d8d7bb959bb4e93281') in 0.007003 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/MyAssets/Prefabs/Round_4/Textures/LargeBottle_granade.png
+  artifactKey: Guid(b8a0016a0f04aa44abe377a3150c194d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Round_4/Textures/LargeBottle_granade.png using Guid(b8a0016a0f04aa44abe377a3150c194d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a1fab0688ea4787066dbbd35c49cdeb1') in 0.007119 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/MyAssets/Prefabs/Round_4/Textures/LargeBottle_lemon.png
+  artifactKey: Guid(0b4fc15c99243f84b987970fe1c379ac) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Round_4/Textures/LargeBottle_lemon.png using Guid(0b4fc15c99243f84b987970fe1c379ac) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '479f0377610ce087ac8951522e22eef4') in 0.010116 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/MyAssets/Prefabs/Round_4/Textures/SmallBottle_strawberrie.png
+  artifactKey: Guid(a05b56a33d404984e9b2cc9bb949580a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Round_4/Textures/SmallBottle_strawberrie.png using Guid(a05b56a33d404984e9b2cc9bb949580a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9dae9e42e75b4bf404b3786d2f421a08') in 0.005890 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000013 seconds.
+  path: Assets/MyAssets/Prefabs/Round_4/Textures/LargeBottle_lemon-and-orange.png
+  artifactKey: Guid(9f73f72bef443cb45a4fa2a550688886) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Round_4/Textures/LargeBottle_lemon-and-orange.png using Guid(9f73f72bef443cb45a4fa2a550688886) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '77be60e175154f6e4062dfc18b9fc0bc') in 0.008973 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/MyAssets/Prefabs/Round_4/Textures/LargeBottle_seventy_percent_alcohol.png
+  artifactKey: Guid(52ab38cd4572c1e458c252f3d4ce270f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Round_4/Textures/LargeBottle_seventy_percent_alcohol.png using Guid(52ab38cd4572c1e458c252f3d4ce270f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7c3f1a74d907c82780b239489fe30eb5') in 0.012571 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/MyAssets/Prefabs/Round_4/Textures/SmallBottle_strawberrie-and-coconut.png
+  artifactKey: Guid(1f1de165195802c44a8ad1a0cd3771b3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Round_4/Textures/SmallBottle_strawberrie-and-coconut.png using Guid(1f1de165195802c44a8ad1a0cd3771b3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e2cebeb1c4e5e4cc9085bb1d4c9c2215') in 0.006569 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000041 seconds.
+  path: Assets/MyAssets/Prefabs/Round_4/Textures/LargeBottle_blueberries.png
+  artifactKey: Guid(4bf635882bf6d2b46ad3e2158b9cb4d6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Round_4/Textures/LargeBottle_blueberries.png using Guid(4bf635882bf6d2b46ad3e2158b9cb4d6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b13cba36f0180dc75813b3bc0376939c') in 0.007076 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/MyAssets/Prefabs/Round_4/Textures/SmallBottle_lime-and-lemon.png
+  artifactKey: Guid(d0e92c6469f8da7458c0ce3689d8352e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Round_4/Textures/SmallBottle_lime-and-lemon.png using Guid(d0e92c6469f8da7458c0ce3689d8352e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '77ab167c473c92bb854948db15f28bd9') in 0.008528 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 13.149906 seconds.
+  path: Assets/MyAssets/Prefabs/Round_4/Bottle1.FBX
+  artifactKey: Guid(638edd002ba290e419fdbbcb299ece1b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Round_4/Bottle1.FBX using Guid(638edd002ba290e419fdbbcb299ece1b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '560f60b1c337ec4b22f4586b7022b142') in 0.021198 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 11
+========================================================================
+Received Import Request.
+  Time since last request: 4.691334 seconds.
+  path: Assets/MyAssets/Prefabs/Round_4/Materials
+  artifactKey: Guid(5a527fc5cb855bf4cb8768f0ff723b52) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Round_4/Materials using Guid(5a527fc5cb855bf4cb8768f0ff723b52) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fecf16043a720692bddb547eed158665') in 0.000561 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 8.531687 seconds.
+  path: Assets/MyAssets/Prefabs/Round_4/Bottle1.FBX
+  artifactKey: Guid(638edd002ba290e419fdbbcb299ece1b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Round_4/Bottle1.FBX using Guid(638edd002ba290e419fdbbcb299ece1b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c75dc32a9bb67460101b2e360abcb798') in 0.015031 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 74.359232 seconds.
+  path: Assets/MyAssets/Prefabs/Round_4/Materials/SmallBottle_apple-and-blue-berries.mat
+  artifactKey: Guid(83305be94db425d4981c4b4f85829246) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Round_4/Materials/SmallBottle_apple-and-blue-berries.mat using Guid(83305be94db425d4981c4b4f85829246) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a4bc65359b9a32f686b4841246a67c4e') in 0.033221 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/MyAssets/Prefabs/Round_4/Materials/SmallBottle_watermelon.mat
+  artifactKey: Guid(3fd5e05b0ab7459418b9901365b6f394) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Round_4/Materials/SmallBottle_watermelon.mat using Guid(3fd5e05b0ab7459418b9901365b6f394) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f90de2d78cce2a8797347f1e90c67cda') in 0.016993 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/MyAssets/Prefabs/Round_4/Materials/SmallBottle_pinapple.mat
+  artifactKey: Guid(2988c413bcd00b647ad49e518b7209a7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Round_4/Materials/SmallBottle_pinapple.mat using Guid(2988c413bcd00b647ad49e518b7209a7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c1a68b4465e0c4cbc27e427184579124') in 0.014709 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/MyAssets/Prefabs/Round_4/Materials/SmallBottle_coconut.mat
+  artifactKey: Guid(09ab8d29723a86d47817bafa494bc284) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Round_4/Materials/SmallBottle_coconut.mat using Guid(09ab8d29723a86d47817bafa494bc284) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b57186ba7898be52ff026160ce2abe7b') in 0.017238 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/MyAssets/Prefabs/Round_4/Materials/SmallBottle_lime.mat
+  artifactKey: Guid(caa77b44ee0bdbc499584a70f6c5826c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Round_4/Materials/SmallBottle_lime.mat using Guid(caa77b44ee0bdbc499584a70f6c5826c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b068168b0bb7a92bd8ce42ef3311509a') in 0.013501 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/MyAssets/Prefabs/Round_4/Materials/SmallBottle_lime-and-lemon.mat
+  artifactKey: Guid(b7ad7dfeb5cf1ff48bae6314bff63589) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Round_4/Materials/SmallBottle_lime-and-lemon.mat using Guid(b7ad7dfeb5cf1ff48bae6314bff63589) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '31e7a1858851047c9d987e240ac9f027') in 0.018828 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 39.489587 seconds.
+  path: Assets/MyAssets/Prefabs/Round_4/Materials/SmallBottle_apple-and-blue-berries.mat
+  artifactKey: Guid(83305be94db425d4981c4b4f85829246) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Round_4/Materials/SmallBottle_apple-and-blue-berries.mat using Guid(83305be94db425d4981c4b4f85829246) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a3e1dadcf070b549c13bc46d1f732559') in 0.019371 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000031 seconds.
+  path: Assets/MyAssets/Prefabs/Round_4/Materials/SmallBottle_watermelon.mat
+  artifactKey: Guid(3fd5e05b0ab7459418b9901365b6f394) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Round_4/Materials/SmallBottle_watermelon.mat using Guid(3fd5e05b0ab7459418b9901365b6f394) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '766fd5caedee106b97518db8b010fa04') in 0.021416 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/MyAssets/Prefabs/Round_4/Materials/SmallBottle_melon.mat
+  artifactKey: Guid(fe4fbcc8d4184f749b53b62c2c0288c2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Round_4/Materials/SmallBottle_melon.mat using Guid(fe4fbcc8d4184f749b53b62c2c0288c2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '82331ef8c2e201390870f09e80fe4522') in 0.014711 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/MyAssets/Prefabs/Round_4/Materials/SmallBottle_lime.mat
+  artifactKey: Guid(caa77b44ee0bdbc499584a70f6c5826c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Round_4/Materials/SmallBottle_lime.mat using Guid(caa77b44ee0bdbc499584a70f6c5826c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '82944a86d338561fdc3412d71f819437') in 0.013042 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/MyAssets/Prefabs/Round_4/Materials/SmallBottle_lime-and-lemon.mat
+  artifactKey: Guid(b7ad7dfeb5cf1ff48bae6314bff63589) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Round_4/Materials/SmallBottle_lime-and-lemon.mat using Guid(b7ad7dfeb5cf1ff48bae6314bff63589) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '565be96cfc259af6f546f18bbf3e49e8') in 0.014317 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 24.696427 seconds.
+  path: Assets/MyAssets/Prefabs/Round_4/Bottle1.FBX
+  artifactKey: Guid(a654bc352c10e074898a3d5a698715b5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Round_4/Bottle1.FBX using Guid(a654bc352c10e074898a3d5a698715b5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '52a7699a4eea8b46d8f387844bc0f325') in 0.013806 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 11
+========================================================================
+Received Import Request.
+  Time since last request: 6.582076 seconds.
+  path: Assets/MyAssets/Prefabs/Round_4/LargeBottle.FBX
+  artifactKey: Guid(a654bc352c10e074898a3d5a698715b5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Round_4/LargeBottle.FBX using Guid(a654bc352c10e074898a3d5a698715b5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5440bcb0cc87e8f280f386c2f45fb9f9') in 0.013002 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 11
+========================================================================
+Received Import Request.
+  Time since last request: 7.903713 seconds.
+  path: Assets/MyAssets/Prefabs/Round_4/LargeBottle.FBX
+  artifactKey: Guid(a654bc352c10e074898a3d5a698715b5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Round_4/LargeBottle.FBX using Guid(a654bc352c10e074898a3d5a698715b5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b4b74b9326c3d83e912a10e0f34f4f1b') in 0.021661 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 31.295877 seconds.
+  path: Assets/MyAssets/Prefabs/Round_4/Materials/LargeBottle_apple.mat
+  artifactKey: Guid(c893b59efdcd7514196828a5af885eb2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Round_4/Materials/LargeBottle_apple.mat using Guid(c893b59efdcd7514196828a5af885eb2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e8b7a6d9b7e0594e172fd91ff90b130e') in 0.014723 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/MyAssets/Prefabs/Round_4/Materials/SmallBottle_banana.mat
+  artifactKey: Guid(f742f1fb2b6fdbb4d923704ca13df237) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Round_4/Materials/SmallBottle_banana.mat using Guid(f742f1fb2b6fdbb4d923704ca13df237) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0dc9c97d340c9fc7ba53d4e8ff60a758') in 0.014379 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000012 seconds.
+  path: Assets/MyAssets/Prefabs/Round_4/Materials/LargeBottle_granade.mat
+  artifactKey: Guid(f4c0aa17ca5ff334a840cf7351e68634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Round_4/Materials/LargeBottle_granade.mat using Guid(f4c0aa17ca5ff334a840cf7351e68634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '69dc6c160801f13a246a53391ded8ce0') in 0.015416 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/MyAssets/Prefabs/Round_4/Materials/SmallBottle_pinapple.mat
+  artifactKey: Guid(2988c413bcd00b647ad49e518b7209a7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Round_4/Materials/SmallBottle_pinapple.mat using Guid(2988c413bcd00b647ad49e518b7209a7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1173414dc69824976c36d9a3cc2d5229') in 0.017448 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/MyAssets/Prefabs/Round_4/Materials/LargeBottle_lemon-and-orange.mat
+  artifactKey: Guid(c68560afcad5b9a44a81c1e825f1d7e9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Round_4/Materials/LargeBottle_lemon-and-orange.mat using Guid(c68560afcad5b9a44a81c1e825f1d7e9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '86a33d9c5b65ac0793ca19d5522587dd') in 0.014969 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000035 seconds.
+  path: Assets/MyAssets/Prefabs/Round_4/Materials/LargeBottle_blueberries.mat
+  artifactKey: Guid(f1119bb16f3b5834093b3a700df838af) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Round_4/Materials/LargeBottle_blueberries.mat using Guid(f1119bb16f3b5834093b3a700df838af) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8e5b1ca3875950b4334ee9e85d902b8e') in 0.017592 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/MyAssets/Prefabs/Round_4/Materials/SmallBottle_coconut.mat
+  artifactKey: Guid(09ab8d29723a86d47817bafa494bc284) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Round_4/Materials/SmallBottle_coconut.mat using Guid(09ab8d29723a86d47817bafa494bc284) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8f2cc6bbdd075377e63de5aeaee74fe4') in 0.016308 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/MyAssets/Prefabs/Round_4/Materials/SmallBottle_lime.mat
+  artifactKey: Guid(caa77b44ee0bdbc499584a70f6c5826c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Round_4/Materials/SmallBottle_lime.mat using Guid(caa77b44ee0bdbc499584a70f6c5826c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cbed71a539c1c6673733f7bc372fed40') in 0.015951 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/MyAssets/Prefabs/Round_4/Materials/LargeBottle_orange.mat
+  artifactKey: Guid(0ec705e15a78d09408185de3c07586a6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Round_4/Materials/LargeBottle_orange.mat using Guid(0ec705e15a78d09408185de3c07586a6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dffe5e6e2eaec992f091ed41dbb01fb5') in 0.014260 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/MyAssets/Prefabs/Round_4/Materials/LargeBottle_seventy_percent_alcohol.mat
+  artifactKey: Guid(b4bb239e9941b3f4cbba0ae780462b4a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Round_4/Materials/LargeBottle_seventy_percent_alcohol.mat using Guid(b4bb239e9941b3f4cbba0ae780462b4a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a0b227cf0e301f5d679261761ae3133d') in 0.015702 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/MyAssets/Prefabs/Round_4/Materials/SmallBottle_strawberrie.mat
+  artifactKey: Guid(34a1e757cc5c3e84fb32b3b2a2c2745d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Round_4/Materials/SmallBottle_strawberrie.mat using Guid(34a1e757cc5c3e84fb32b3b2a2c2745d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9a3badc34b61edda3da7b40c4afef49f') in 0.013290 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 39.538443 seconds.
+  path: Assets/MyAssets/Prefabs/Round_4/Bottle1.FBX
+  artifactKey: Guid(a654bc352c10e074898a3d5a698715b5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Round_4/Bottle1.FBX using Guid(a654bc352c10e074898a3d5a698715b5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '67abcf27ecf9ec9aa89953bb80a260b1') in 0.013843 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 11.430870 seconds.
+  path: Assets/MyAssets/Prefabs/Round_4/Textures/Bottle1.FBX
+  artifactKey: Guid(2e3c4656c4c80cd4d8d31dfc74da586b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Round_4/Textures/Bottle1.FBX using Guid(2e3c4656c4c80cd4d8d31dfc74da586b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '342f65ee8c4e4c8efb548c5cd54601ca') in 0.009846 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 11
+========================================================================
+Received Import Request.
+  Time since last request: 11.011148 seconds.
+  path: Assets/MyAssets/Prefabs/Round_4/Textures/Materials/PaletteBottles.mat
+  artifactKey: Guid(815b8f8db41c9b44bb0430ff62d993c7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Round_4/Textures/Materials/PaletteBottles.mat using Guid(815b8f8db41c9b44bb0430ff62d993c7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '20b80c857cafd06e468d220e91d902cc') in 0.012796 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 34.190863 seconds.
+  path: Assets/MyAssets/Prefabs/Round_4/Bottle3_1 Variant.prefab
+  artifactKey: Guid(4ed5d54273a0d9a40aef9b9643aec045) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Round_4/Bottle3_1 Variant.prefab using Guid(4ed5d54273a0d9a40aef9b9643aec045) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '569084cffdd41f52283f7ac46829b6c0') in 0.015062 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 19
+========================================================================
+Received Import Request.
+  Time since last request: 0.016596 seconds.
+  path: Assets/MyAssets/Prefabs/Round_4/Bottle1.prefab
+  artifactKey: Guid(708a753323d382340bbd278918af53db) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Round_4/Bottle1.prefab using Guid(708a753323d382340bbd278918af53db) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a7c1a867a05ff05a82855b2c33c07c0c') in 0.017247 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 19
+========================================================================
+Received Import Request.
+  Time since last request: 4.181362 seconds.
+  path: Assets/MyAssets/Prefabs/Round_4/LargeBottle.prefab
+  artifactKey: Guid(708a753323d382340bbd278918af53db) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Round_4/LargeBottle.prefab using Guid(708a753323d382340bbd278918af53db) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bf12fa391406f3bd50b994124a47880e') in 0.006097 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 19
+========================================================================
+Received Import Request.
+  Time since last request: 4.787372 seconds.
+  path: Assets/MyAssets/Prefabs/Round_4/SmallBottle.prefab
+  artifactKey: Guid(4ed5d54273a0d9a40aef9b9643aec045) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Round_4/SmallBottle.prefab using Guid(4ed5d54273a0d9a40aef9b9643aec045) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ae3995ce4e43563187d0e2234531f947') in 0.006374 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 19
+========================================================================
+Received Import Request.
+  Time since last request: 50.641200 seconds.
+  path: Assets/MyAssets/Prefabs/Round_4/Materials/LargeBottle_apple.mat
+  artifactKey: Guid(c893b59efdcd7514196828a5af885eb2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Round_4/Materials/LargeBottle_apple.mat using Guid(c893b59efdcd7514196828a5af885eb2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '391719bd7bc433daabd2953319f723c0') in 0.016853 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/MyAssets/Prefabs/Round_4/Materials/LargeBottle_granade.mat
+  artifactKey: Guid(f4c0aa17ca5ff334a840cf7351e68634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Round_4/Materials/LargeBottle_granade.mat using Guid(f4c0aa17ca5ff334a840cf7351e68634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '64295e61f419cd919a0b310e74766673') in 0.018535 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000033 seconds.
+  path: Assets/MyAssets/Prefabs/Round_4/Materials/SmallBottle_melon.mat
+  artifactKey: Guid(fe4fbcc8d4184f749b53b62c2c0288c2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Round_4/Materials/SmallBottle_melon.mat using Guid(fe4fbcc8d4184f749b53b62c2c0288c2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fc3dfa9e69a72a813b7e3e1d158d05da') in 0.016218 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000036 seconds.
+  path: Assets/MyAssets/Prefabs/Round_4/Materials/LargeBottle_lemon-and-orange.mat
+  artifactKey: Guid(c68560afcad5b9a44a81c1e825f1d7e9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Round_4/Materials/LargeBottle_lemon-and-orange.mat using Guid(c68560afcad5b9a44a81c1e825f1d7e9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a7d4a2df5dfae107836d5ca49a2eb7e0') in 0.014838 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000014 seconds.
+  path: Assets/MyAssets/Prefabs/Round_4/Materials/LargeBottle_pear.mat
+  artifactKey: Guid(1e3d3b71dc1313b4ba7fcf0dc597e40d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Round_4/Materials/LargeBottle_pear.mat using Guid(1e3d3b71dc1313b4ba7fcf0dc597e40d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8979db35aa5ad93eaedc6fe1b7f099a9') in 0.016481 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/MyAssets/Prefabs/Round_4/Materials/LargeBottle_blueberries.mat
+  artifactKey: Guid(f1119bb16f3b5834093b3a700df838af) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Round_4/Materials/LargeBottle_blueberries.mat using Guid(f1119bb16f3b5834093b3a700df838af) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e3f20c2c2882faf654f35d0c0e813a59') in 0.020742 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/MyAssets/Prefabs/Round_4/Materials/LargeBottle_graps.mat
+  artifactKey: Guid(40725acc64908fe449d3ecc43e4a6d53) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Round_4/Materials/LargeBottle_graps.mat using Guid(40725acc64908fe449d3ecc43e4a6d53) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'aff8b956cee06bba559184d5dcaad30f') in 0.034723 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/MyAssets/Prefabs/Round_4/Materials/LargeBottle_seventy_percent_alcohol.mat
+  artifactKey: Guid(b4bb239e9941b3f4cbba0ae780462b4a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Round_4/Materials/LargeBottle_seventy_percent_alcohol.mat using Guid(b4bb239e9941b3f4cbba0ae780462b4a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '26e14a5c41d77c534ed95596c0c3c37c') in 0.012168 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/MyAssets/Prefabs/Round_4/Materials/SmallBottle_strawberrie.mat
+  artifactKey: Guid(34a1e757cc5c3e84fb32b3b2a2c2745d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Round_4/Materials/SmallBottle_strawberrie.mat using Guid(34a1e757cc5c3e84fb32b3b2a2c2745d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '318b0c8d4367daf986343255c5566651') in 0.012781 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 30.823177 seconds.
+  path: Assets/MyAssets/Prefabs/Round_4/LargeBottle.prefab
+  artifactKey: Guid(708a753323d382340bbd278918af53db) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Round_4/LargeBottle.prefab using Guid(708a753323d382340bbd278918af53db) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1bdfdfe30ab89454e52e9e510b3e7269') in 0.006738 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 20
+========================================================================
+Received Import Request.
+  Time since last request: 9.087684 seconds.
+  path: Assets/MyAssets/Prefabs/Round_4/LargeBottle.prefab
+  artifactKey: Guid(708a753323d382340bbd278918af53db) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Round_4/LargeBottle.prefab using Guid(708a753323d382340bbd278918af53db) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '71c3c0403720395049f3d8c6922e58fc') in 0.008043 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 21
+========================================================================
+Received Import Request.
+  Time since last request: 3.027245 seconds.
+  path: Assets/MyAssets/Prefabs/Round_4/LargeBottle.prefab
+  artifactKey: Guid(708a753323d382340bbd278918af53db) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Round_4/LargeBottle.prefab using Guid(708a753323d382340bbd278918af53db) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'abb855b4574fcdccffa3019fae703992') in 0.010611 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 22
+========================================================================
+Received Import Request.
+  Time since last request: 12.337479 seconds.
+  path: Assets/MyAssets/Prefabs/Round_4/SmallBottle.prefab
+  artifactKey: Guid(4ed5d54273a0d9a40aef9b9643aec045) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Round_4/SmallBottle.prefab using Guid(4ed5d54273a0d9a40aef9b9643aec045) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8e5736578dd3747e7550d18681d41641') in 0.009339 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 20
+========================================================================
+Received Import Request.
+  Time since last request: 3.648044 seconds.
+  path: Assets/MyAssets/Prefabs/Round_4/SmallBottle.prefab
+  artifactKey: Guid(4ed5d54273a0d9a40aef9b9643aec045) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Round_4/SmallBottle.prefab using Guid(4ed5d54273a0d9a40aef9b9643aec045) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'df9c801260bcd81afce5ed0a6cf37477') in 0.006999 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 21
+========================================================================
+Received Import Request.
+  Time since last request: 4.428299 seconds.
+  path: Assets/MyAssets/Prefabs/Round_4/SmallBottle.prefab
+  artifactKey: Guid(4ed5d54273a0d9a40aef9b9643aec045) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Round_4/SmallBottle.prefab using Guid(4ed5d54273a0d9a40aef9b9643aec045) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9d1f573be08ab39e05159707036053e2') in 0.006391 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 22
+========================================================================
+Received Prepare
+Default GameObject Tag: Player already registered
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory is not a mono symbol file
+- Loaded All Assemblies, in  0.386 seconds
+Refreshing native plugins compatible for Editor in 2.38 ms, found 3 plugins.
+Native extension for WindowsStandalone target not found
+Native extension for Android target not found
+Native extension for WebGL target not found
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.765 seconds
+Domain Reload Profiling: 1152ms
+	BeginReloadAssembly (141ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (4ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (37ms)
+	RebuildCommonClasses (33ms)
+	RebuildNativeTypeToScriptingClass (14ms)
+	initialDomainReloadingComplete (30ms)
+	LoadAllAssembliesAndSetupDomain (167ms)
+		LoadAssemblies (227ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (12ms)
+			TypeCache.Refresh (6ms)
+				TypeCache.ScanAssembly (0ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (5ms)
+	FinalizeReload (766ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (399ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (21ms)
+			SetLoadedEditorAssemblies (3ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (50ms)
+			ProcessInitializeOnLoadAttributes (300ms)
+			ProcessInitializeOnLoadMethodAttributes (22ms)
+			AfterProcessingInitializeOnLoad (3ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (7ms)
+Refreshing native plugins compatible for Editor in 3.55 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3169 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 28 unused Assets / (32.1 KB). Loaded Objects now: 3721.
+Memory consumption went from 137.6 MB to 137.6 MB.
+Total: 2.708300 ms (FindLiveObjects: 0.265600 ms CreateObjectMapping: 0.309200 ms MarkObjects: 2.089100 ms  DeleteObjects: 0.043600 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:CustomObjectIndexerAttribute: 9a22284fe3817be447336de3de66b15e -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Default GameObject Tag: Player already registered
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory is not a mono symbol file
+- Loaded All Assemblies, in  0.370 seconds
+Refreshing native plugins compatible for Editor in 2.21 ms, found 3 plugins.
+Native extension for WindowsStandalone target not found
+Native extension for Android target not found
+Native extension for WebGL target not found
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.789 seconds
+Domain Reload Profiling: 1159ms
+	BeginReloadAssembly (137ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (6ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (29ms)
+	RebuildCommonClasses (31ms)
+	RebuildNativeTypeToScriptingClass (11ms)
+	initialDomainReloadingComplete (23ms)
+	LoadAllAssembliesAndSetupDomain (167ms)
+		LoadAssemblies (228ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (13ms)
+			TypeCache.Refresh (6ms)
+				TypeCache.ScanAssembly (0ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (6ms)
+	FinalizeReload (790ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (387ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (27ms)
+			SetLoadedEditorAssemblies (3ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (49ms)
+			ProcessInitializeOnLoadAttributes (282ms)
+			ProcessInitializeOnLoadMethodAttributes (24ms)
+			AfterProcessingInitializeOnLoad (2ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (7ms)
+Refreshing native plugins compatible for Editor in 2.57 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3170 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 28 unused Assets / (32.1 KB). Loaded Objects now: 3724.
+Memory consumption went from 139.8 MB to 139.8 MB.
+Total: 2.782400 ms (FindLiveObjects: 0.265800 ms CreateObjectMapping: 0.248400 ms MarkObjects: 2.215900 ms  DeleteObjects: 0.051500 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:CustomObjectIndexerAttribute: 9a22284fe3817be447336de3de66b15e -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Default GameObject Tag: Player already registered
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory is not a mono symbol file
+- Loaded All Assemblies, in  0.385 seconds
+Refreshing native plugins compatible for Editor in 2.49 ms, found 3 plugins.
+Native extension for WindowsStandalone target not found
+Native extension for Android target not found
+Native extension for WebGL target not found
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.770 seconds
+Domain Reload Profiling: 1156ms
+	BeginReloadAssembly (146ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (6ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (34ms)
+	RebuildCommonClasses (32ms)
+	RebuildNativeTypeToScriptingClass (11ms)
+	initialDomainReloadingComplete (24ms)
+	LoadAllAssembliesAndSetupDomain (172ms)
+		LoadAssemblies (237ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (13ms)
+			TypeCache.Refresh (6ms)
+				TypeCache.ScanAssembly (0ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (5ms)
+	FinalizeReload (771ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (385ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (26ms)
+			SetLoadedEditorAssemblies (3ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (50ms)
+			ProcessInitializeOnLoadAttributes (277ms)
+			ProcessInitializeOnLoadMethodAttributes (24ms)
+			AfterProcessingInitializeOnLoad (3ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (9ms)
+Refreshing native plugins compatible for Editor in 2.19 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3170 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 28 unused Assets / (32.2 KB). Loaded Objects now: 3727.
+Memory consumption went from 141.8 MB to 141.7 MB.
+Total: 3.119600 ms (FindLiveObjects: 0.255800 ms CreateObjectMapping: 0.231100 ms MarkObjects: 2.581000 ms  DeleteObjects: 0.050800 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:CustomObjectIndexerAttribute: 9a22284fe3817be447336de3de66b15e -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Default GameObject Tag: Player already registered
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory is not a mono symbol file
+- Loaded All Assemblies, in  0.422 seconds
+Refreshing native plugins compatible for Editor in 2.10 ms, found 3 plugins.
+Native extension for WindowsStandalone target not found
+Native extension for Android target not found
+Native extension for WebGL target not found
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.773 seconds
+Domain Reload Profiling: 1196ms
+	BeginReloadAssembly (139ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (5ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (29ms)
+	RebuildCommonClasses (31ms)
+	RebuildNativeTypeToScriptingClass (11ms)
+	initialDomainReloadingComplete (26ms)
+	LoadAllAssembliesAndSetupDomain (215ms)
+		LoadAssemblies (278ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (14ms)
+			TypeCache.Refresh (7ms)
+				TypeCache.ScanAssembly (0ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (5ms)
+	FinalizeReload (774ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (391ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (25ms)
+			SetLoadedEditorAssemblies (3ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (50ms)
+			ProcessInitializeOnLoadAttributes (286ms)
+			ProcessInitializeOnLoadMethodAttributes (24ms)
+			AfterProcessingInitializeOnLoad (3ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (8ms)
+Refreshing native plugins compatible for Editor in 2.91 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3170 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 28 unused Assets / (32.1 KB). Loaded Objects now: 3730.
+Memory consumption went from 143.7 MB to 143.7 MB.
+Total: 3.794700 ms (FindLiveObjects: 0.341200 ms CreateObjectMapping: 0.254000 ms MarkObjects: 3.148200 ms  DeleteObjects: 0.050200 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:CustomObjectIndexerAttribute: 9a22284fe3817be447336de3de66b15e -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Default GameObject Tag: Player already registered
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory is not a mono symbol file
+- Loaded All Assemblies, in  0.383 seconds
+Refreshing native plugins compatible for Editor in 2.17 ms, found 3 plugins.
+Native extension for WindowsStandalone target not found
+Native extension for Android target not found
+Native extension for WebGL target not found
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.753 seconds
+Domain Reload Profiling: 1137ms
+	BeginReloadAssembly (137ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (8ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (29ms)
+	RebuildCommonClasses (30ms)
+	RebuildNativeTypeToScriptingClass (11ms)
+	initialDomainReloadingComplete (22ms)
+	LoadAllAssembliesAndSetupDomain (182ms)
+		LoadAssemblies (244ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (12ms)
+			TypeCache.Refresh (6ms)
+				TypeCache.ScanAssembly (0ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (5ms)
+	FinalizeReload (754ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (381ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (21ms)
+			SetLoadedEditorAssemblies (3ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (48ms)
+			ProcessInitializeOnLoadAttributes (280ms)
+			ProcessInitializeOnLoadMethodAttributes (24ms)
+			AfterProcessingInitializeOnLoad (4ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (8ms)
+Refreshing native plugins compatible for Editor in 2.79 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3170 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 28 unused Assets / (32.1 KB). Loaded Objects now: 3733.
+Memory consumption went from 145.7 MB to 145.6 MB.
+Total: 3.290500 ms (FindLiveObjects: 0.330100 ms CreateObjectMapping: 0.297700 ms MarkObjects: 2.612700 ms  DeleteObjects: 0.049100 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:CustomObjectIndexerAttribute: 9a22284fe3817be447336de3de66b15e -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
