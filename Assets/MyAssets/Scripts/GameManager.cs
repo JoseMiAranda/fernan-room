@@ -3,6 +3,7 @@ using TMPro;
 using System.IO;
 using Newtonsoft.Json;
 using System.Collections.Generic;
+using System;
 
 public class GameManager : MonoBehaviour
 {
@@ -18,9 +19,9 @@ public class GameManager : MonoBehaviour
 
     // Font sizes
     private float currentSize;
-    private float largeNoteSize = 36f; // For short proofs
-    private float mediumNoteSize = 24f; // For normal proof
-    private float smallNoteSize = 18; // For large proofs
+    private readonly float largeNoteSize = 36f; // For short proofs
+    private readonly float mediumNoteSize = 24f; // For normal proof
+    private readonly float smallNoteSize = 18; // For large proofs
 
     // Round control
     int round = 0;
@@ -44,6 +45,15 @@ public class GameManager : MonoBehaviour
     public GameObject churro;
     public GameObject foodScanner;
     private GameObject foodScannerInstance;
+
+    // Round 4
+    private List<GameObject> bottleScanners = new List<GameObject>();
+    private readonly Dictionary<string, string> teacherBottles = new()
+    {
+        { "Eladio", "Granade" },
+        { "Macarena", "Alcohol" },
+        { "Antonio", "Lime & Limon" }
+    };
 
     private void Awake()
     {
@@ -125,6 +135,30 @@ public class GameManager : MonoBehaviour
         PartyChurros();
         Destroy(foodScannerInstance);
         currentSize = mediumNoteSize;
+
+        int count = 0;
+        foreach (var teacherBootle in teacherBottles)
+        {
+            float scannerLenght = carScanner.GetComponent<MeshRenderer>().bounds.size.x;
+            Vector3 newPosition = scannerRespawnPoint.transform.position + new Vector3(count * (scannerLenght + 0.2f), 0, 0);
+            bottleScanners.Add(Instantiate(carScanner, newPosition, scannerRespawnPoint.rotation));
+            Debug.Log(teacherBootle.Value);
+            bottleScanners[count].GetComponent<Scanner>().Constructor(teacherBootle.Value, CheckBootleScanners, CheckBootleScanners);
+            count++;
+        }
+    }
+
+    private void CheckBootleScanners()
+    {
+        foreach (var bottleScanner in bottleScanners)
+        {
+            if(!bottleScanner.GetComponent<Scanner>().IsFound())
+            {
+                return;
+            }
+        }
+        // Round Five
+        Debug.Log("Round Five");
     }
 
     private void PartyChurros()
