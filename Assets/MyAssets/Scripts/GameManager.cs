@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     private GameTexts gameTexts;
     private static TextMeshProUGUI roundText;
     private static TextMeshProUGUI guidanceText;
+    private static TextMeshProUGUI warningText;
     private string jsonPath = @"D:\UnityVR\fernan-room\Assets\Data\Jsons\game_texts.json";
     private string proof = "Proof";
 
@@ -62,6 +63,7 @@ public class GameManager : MonoBehaviour
         // Obtain Text canvas
         roundText = GameObject.FindWithTag("Round").GetComponent<TextMeshProUGUI>();
         guidanceText = GameObject.FindWithTag("Guidance").GetComponent<TextMeshProUGUI>();
+        warningText = GameObject.FindWithTag("Warning").GetComponent<TextMeshProUGUI>();
 
         if (Instance == null) // Singleton pattern
         {
@@ -77,7 +79,7 @@ public class GameManager : MonoBehaviour
     {
         if(Input.GetKeyUp(KeyCode.Q)) {
             // Reset grabbable objects 
-            foreach (var i in Object.FindObjectsOfType<ObjectGrabbable>())
+            foreach (var i in UnityEngine.Object.FindObjectsOfType<ObjectGrabbable>())
             {
                 i.resetTransform();
             }
@@ -87,19 +89,16 @@ public class GameManager : MonoBehaviour
     public void Introduction()
     {
         currentSize = mediumNoteSize;
-        roundText.text = gameTexts.Rounds.Introduction.Level;
-        guidanceText.text = gameTexts.Guidances.PressEToUseDashboard;
-        proof = gameTexts.Rounds.Introduction.Proof;
+        TextsRound();
     }
 
     public void RoundOne()
     {
         round = 1;
         carScannerInstance = Instantiate(carScanner, scannerRespawnPoint.position, scannerRespawnPoint.rotation);
+        carScannerInstance.GetComponent<Scanner>().Constructor("Tezla", RoundTwo, ShowWarning);
         currentSize = largeNoteSize;
-        roundText.text = gameTexts.Rounds.One.Level;
-        guidanceText.text = gameTexts.Guidances.PressEToUseDashboard;
-        proof = gameTexts.Rounds.One.Proof;
+        TextsRound();
     }
 
     public void RoundTwo()
@@ -108,9 +107,7 @@ public class GameManager : MonoBehaviour
         Destroy(carScannerInstance);
         gunInstance = Instantiate(gun, gunRespawnPoint.position, gunRespawnPoint.rotation);
         currentSize = smallNoteSize;
-        roundText.text = gameTexts.Rounds.Two.Level; 
-        guidanceText.text = gameTexts.Guidances.PressEToUseDashboard;
-        proof = gameTexts.Rounds.Two.Proof;
+        TextsRound();
     }
 
     public void RoundThree()
@@ -119,9 +116,7 @@ public class GameManager : MonoBehaviour
         Destroy(gunInstance);
         foodScannerInstance = Instantiate(foodScanner, scannerRespawnPoint.position, scannerRespawnPoint.rotation);
         currentSize = smallNoteSize;
-        roundText.text = gameTexts.Rounds.Three.Level;
-        guidanceText.text = gameTexts.Guidances.PressEToUseDashboard;
-        proof = gameTexts.Rounds.Three.Proof;
+        TextsRound();
     }
 
     public void RoundFour()
@@ -130,9 +125,6 @@ public class GameManager : MonoBehaviour
         PartyChurros();
         Destroy(foodScannerInstance);
         currentSize = mediumNoteSize;
-        roundText.text = gameTexts.Rounds.Four.Level;
-        guidanceText.text = gameTexts.Guidances.PressEToUseDashboard;
-        proof = gameTexts.Rounds.Four.Proof;
     }
 
     private void PartyChurros()
@@ -178,5 +170,18 @@ public class GameManager : MonoBehaviour
     public float getRound()
     {
         return round;
+    }
+
+    internal void ShowWarning()
+    {
+        warningText.text = gameTexts.Rounds[round].Error;
+    }
+
+    private void TextsRound()
+    {
+        roundText.text = gameTexts.Rounds[round].Level;
+        warningText.text = "";
+        guidanceText.text = gameTexts.Guidances.PressEToUseDashboard;
+        proof = gameTexts.Rounds[round].Proof;
     }
 }
