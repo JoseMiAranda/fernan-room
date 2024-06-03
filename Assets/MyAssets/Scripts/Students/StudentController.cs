@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class StudentController : MonoBehaviour
@@ -29,7 +27,7 @@ public class StudentController : MonoBehaviour
         SetAnimation(studentAnimationClip.Length - 1); // Death Animation
         if(isTarjet)
         {
-            GameManager.Instance.RoundThree();
+            GameManager.Instance.ClearRoundTwo();
         }
     }
 }

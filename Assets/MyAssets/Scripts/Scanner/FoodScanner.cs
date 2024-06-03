@@ -52,7 +52,7 @@ public class FoodScanner : MonoBehaviour
             Explode(true);
         } else
         {
-            GameManager.Instance.RoundFour();
+            GameManager.Instance.ClearRoundThree();
         }
     }
 

@@ -3,7 +3,6 @@ using TMPro;
 using System.IO;
 using Newtonsoft.Json;
 using System.Collections.Generic;
-using System;
 
 public class GameManager : MonoBehaviour
 {
@@ -23,8 +22,8 @@ public class GameManager : MonoBehaviour
     private readonly float mediumNoteSize = 24f; // For normal proof
     private readonly float smallNoteSize = 18; // For large proofs
 
-    // Round control
-    int round = 0;
+    // Debubing
+    public int round = 0;
 
     // Respawn Points
     Transform scannerRespawnPoint;
@@ -78,16 +77,18 @@ public class GameManager : MonoBehaviour
         if (Instance == null) // Singleton pattern
         {
             Instance = this;
-            Introduction();
         } else
         {
             Debug.LogWarning("There are one more Game Managers!");
         }
+        GoToRound(round);
     }
+
 
     private void Update()
     {
-        if(Input.GetKeyUp(KeyCode.Q)) {
+        if (Input.GetKeyUp(KeyCode.Q))
+        {
             // Reset grabbable objects 
             foreach (var i in UnityEngine.Object.FindObjectsOfType<ObjectGrabbable>())
             {
@@ -96,6 +97,41 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    // Debuging
+    private void GoToRound(int round) 
+    {
+        if(round < 0 || round > 5) // Prevents errors when extracts game texts
+        {
+           this.round = 0;
+        }
+        switch (round)
+        {
+            case 0:
+                Introduction();
+                break;
+            case 1:
+                RoundOne(); 
+                break;
+            case 2: 
+                RoundTwo(); 
+                break;
+            case 3: 
+                RoundThree(); 
+                break;
+            case 4: 
+                RoundFour(); 
+                break;
+            case 5: 
+                RoundFive(); 
+                break;
+            default:
+                Introduction();
+                break;
+                  
+        }
+    }
+
+    // Rounds 
     public void Introduction()
     {
         currentSize = mediumNoteSize;
@@ -106,7 +142,7 @@ public class GameManager : MonoBehaviour
     {
         round = 1;
         carScannerInstance = Instantiate(carScanner, scannerRespawnPoint.position, scannerRespawnPoint.rotation);
-        carScannerInstance.GetComponent<Scanner>().Constructor("Tezla", RoundTwo, ShowWarning);
+        carScannerInstance.GetComponent<Scanner>().Constructor("Tezla", ClearRoundOne, ShowWarning);
         currentSize = largeNoteSize;
         TextsRound();
     }
@@ -114,7 +150,6 @@ public class GameManager : MonoBehaviour
     public void RoundTwo()
     {
         round = 2;
-        Destroy(carScannerInstance);
         gunInstance = Instantiate(gun, gunRespawnPoint.position, gunRespawnPoint.rotation);
         currentSize = smallNoteSize;
         TextsRound();
@@ -123,7 +158,6 @@ public class GameManager : MonoBehaviour
     public void RoundThree()
     {
         round = 3;
-        Destroy(gunInstance);
         foodScannerInstance = Instantiate(foodScanner, scannerRespawnPoint.position, scannerRespawnPoint.rotation);
         currentSize = smallNoteSize;
         TextsRound();
@@ -132,10 +166,7 @@ public class GameManager : MonoBehaviour
     public void RoundFour()
     {
         round = 4;
-        PartyChurros();
-        Destroy(foodScannerInstance);
         currentSize = mediumNoteSize;
-
         int count = 0;
         foreach (var teacherBootle in teacherBottles)
         {
@@ -148,6 +179,41 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void RoundFive()
+    {
+
+    }
+
+    // Clear Rounds. It is used to preparate the scenary to call the next round in order to use debuging sucessfully
+    public void ClearRoundOne()
+    {
+        Destroy(carScannerInstance);
+        RoundTwo();
+    }
+
+    public void ClearRoundTwo()
+    {
+        Destroy(gunInstance);
+        RoundThree();
+    }
+
+    public void ClearRoundThree()
+    {
+        PartyChurros();
+        Destroy(foodScannerInstance);
+        RoundFour();
+    }
+
+    void ClearRoundFour()
+    {
+        // In progress
+        foreach (var bottleScanner in bottleScanners)
+        {
+            Destroy(bottleScanner);
+        }
+        RoundFive();
+    }
+
     private void CheckBootleScanners()
     {
         foreach (var bottleScanner in bottleScanners)
@@ -158,7 +224,7 @@ public class GameManager : MonoBehaviour
             }
         }
         // Round Five
-        Debug.Log("Round Five");
+        ClearRoundFour();
     }
 
     private void PartyChurros()
