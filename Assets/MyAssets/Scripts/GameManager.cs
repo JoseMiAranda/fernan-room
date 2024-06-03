@@ -54,6 +54,12 @@ public class GameManager : MonoBehaviour
         { "Antonio", "Lime & Limon" }
     };
 
+    // Round 5
+    private List<GameObject> objectGrabbables = new();
+    private List<Material> objectGrabbableMaterials = new();
+    private List<Material> customMaterials = new();
+    private List<int> changedObjectGrabbables = new();
+
     private void Awake()
     {
         currentSize = mediumNoteSize;
@@ -90,7 +96,7 @@ public class GameManager : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.Q))
         {
             // Reset grabbable objects 
-            foreach (var i in UnityEngine.Object.FindObjectsOfType<ObjectGrabbable>())
+            foreach (var i in FindObjectsOfType<ObjectGrabbable>())
             {
                 i.resetTransform();
             }
@@ -181,7 +187,56 @@ public class GameManager : MonoBehaviour
 
     public void RoundFive()
     {
+        GetGrabableObjects();
+        RandomInvisibleObjects();
+    }
 
+    private void RandomInvisibleObjects()
+    {
+        int total = 3;
+        Transform player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        System.Random rnd = new();
+        do
+        {
+            bool isValid = true;
+            int rndIndex = rnd.Next(0, objectGrabbables.Count - 1);
+            for (int i = 0; i < changedObjectGrabbables.Count; i++)
+            {
+                if (changedObjectGrabbables[i] == rndIndex)
+                {
+                    isValid = false;
+                    break;
+                }
+            }
+            if(isValid)
+            {
+                changedObjectGrabbables.Add(rndIndex);
+                objectGrabbables[rndIndex].gameObject.layer = 8; // 8 = Proximity
+                objectGrabbables[rndIndex].GetComponent<Renderer>().material = customMaterials[rndIndex];
+                ProximityDetector proximityDetector = objectGrabbables[rndIndex].AddComponent<ProximityDetector>();
+                proximityDetector.player = player;
+            }
+            if (changedObjectGrabbables.Count == total)
+            {
+                break;
+            }
+        } while (true);
+    }
+
+    private void GetGrabableObjects()
+    {
+        foreach (var objectGrabbable in FindObjectsOfType<ObjectGrabbable>())
+        {
+            Renderer renderer = objectGrabbable.gameObject.GetComponent<Renderer>();
+            if (renderer != null) // Ensures getting objects whose renderer we can extract their materials
+            {
+                objectGrabbables.Add(objectGrabbable.gameObject);
+                Material customMaterial = new Material(Shader.Find("Custom/Proximity"));
+                objectGrabbableMaterials.Add(renderer.material);
+                customMaterial.SetTexture("_MainTex", renderer.material.mainTexture);
+                customMaterials.Add(customMaterial);
+            }
+        }
     }
 
     // Clear Rounds. It is used to preparate the scenary to call the next round in order to use debuging sucessfully
