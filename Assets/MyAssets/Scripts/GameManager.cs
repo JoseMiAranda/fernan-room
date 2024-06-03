@@ -139,10 +139,10 @@ public class GameManager : MonoBehaviour
         int count = 0;
         foreach (var teacherBootle in teacherBottles)
         {
+            carScanner.GetComponent<Transform>().localScale = new Vector3(0.1f, 1f, 0.1f); //! Test
             float scannerLenght = carScanner.GetComponent<MeshRenderer>().bounds.size.x;
-            Vector3 newPosition = scannerRespawnPoint.transform.position + new Vector3(count * (scannerLenght + 0.2f), 0, 0);
+            Vector3 newPosition = scannerRespawnPoint.transform.position + new Vector3(count * (scannerLenght + 0.2f) - 1f, 0, 0);
             bottleScanners.Add(Instantiate(carScanner, newPosition, scannerRespawnPoint.rotation));
-            Debug.Log(teacherBootle.Value);
             bottleScanners[count].GetComponent<Scanner>().Constructor(teacherBootle.Value, CheckBootleScanners, CheckBootleScanners);
             count++;
         }

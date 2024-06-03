@@ -9,6 +9,7 @@ public class PickUpObj : MonoBehaviour
 
     private ObjectGrabbable objectGrabbable;
     private Gun gun;
+    private Mirror mirror;
     private Note note;
 
     void Update()
@@ -27,10 +28,15 @@ public class PickUpObj : MonoBehaviour
                     {
                         gun.Grab(gunGrabPoint);
                     }
+                    else if (raycastHit.transform.TryGetComponent(out mirror)) // Grab Mirror
+                    {
+                        mirror.Grab(gunGrabPoint);
+                    }
                     else if(raycastHit.transform.TryGetComponent(out objectGrabbable)) // Grab Object
                     {
                         objectGrabbable.Grab(objectGrabPointTransform);
                     }
+                    
                 }
             }
             else

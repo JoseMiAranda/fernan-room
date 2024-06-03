@@ -40,6 +40,7 @@ public class Gun : MonoBehaviour
         Vector3 parentCenter = grabPoint.transform.position;
         transform.localPosition = Vector3.zero;
         transform.localRotation = Quaternion.identity;
+        transform.Rotate(-3.234f, -5.2f, 3);
         objectRigidBody.useGravity = false;
         objectCollider.enabled = false;
         gunGrabPoint = grabPoint;
