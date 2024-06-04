@@ -278,6 +278,17 @@ public class GameManager : MonoBehaviour
         RoundFive();
     }
 
+    public void ClearRoundFive()
+    {
+        foreach (int index in changedObjectGrabbables)
+        {
+            objectGrabbables[index].SetActive(true);
+            objectGrabbables[index].layer = 0; // 0 = Default
+            objectGrabbables[index].GetComponent<Renderer>().material = objectGrabbableMaterials[index];
+        }
+        Destroy(invisivilityScannerInstance);
+    }
+
     private void CheckBootleScanners()
     {
         foreach (var bottleScanner in bottleScanners)

@@ -43,8 +43,8 @@ MonoBehaviour:
     y: 631
     width: 436
     height: 316
-  m_MinSize: {x: 102, y: 121}
-  m_MaxSize: {x: 4002, y: 4021}
+  m_MinSize: {x: 100, y: 100}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 14}
   m_Panes:
   - {fileID: 14}
@@ -94,8 +94,8 @@ MonoBehaviour:
     y: 0
     width: 307
     height: 947
-  m_MinSize: {x: 276, y: 71}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 17}
   m_Panes:
   - {fileID: 17}
@@ -177,7 +177,7 @@ MonoBehaviour:
   m_MinSize: {x: 400, y: 100}
   m_MaxSize: {x: 32384, y: 16192}
   vertical: 0
-  controlID: 167
+  controlID: 112
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -487,9 +487,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: f842ffff
+      m_SelectedIDs: 94f7ffff
       m_LastClickedID: 0
-      m_ExpandedIDs: b83dffff0243ffffeec3fffffafaffff54600000
+      m_ExpandedIDs: 20fbffff925f0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -605,7 +605,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/MyAssets/Scripts
+    - Assets/MyAssets/Prefabs/Round_2
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -613,30 +613,30 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 89
   m_LastFolders:
-  - Assets/MyAssets/Scripts
+  - Assets/MyAssets/Prefabs/Round_2
   m_LastFoldersGridSize: 89
   m_LastProjectPath: D:\UnityVR\fernan-room
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 806c0000
-    m_LastClickedID: 27776
-    m_ExpandedIDs: 00000000606c0000626c0000646c0000666c0000686c00006a6c00006c6c00006e6c0000706c0000726c0000746c0000766c0000786c00007a6c00007c6c00007e6c0000806c0000da6c0000ea6c0000466e000000ca9a3b
+    m_SelectedIDs: 2e6d0000
+    m_LastClickedID: 27950
+    m_ExpandedIDs: 000000005e6c0000606c0000626c0000646c0000666c0000686c00006a6c00006c6c00006e6c0000706c0000726c0000746c0000766c0000786c00007a6c00007c6c00007e6c0000806c0000ee6c0000fe6c000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: Gun
-      m_OriginalName: Gun
+      m_Name: 
+      m_OriginalName: 
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 27888
+      m_UserData: 0
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 0
+      m_OriginalEventType: 11
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 11}
     m_SearchString: 
@@ -650,7 +650,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000606c0000626c0000646c0000666c0000686c00006a6c00006c6c00006e6c0000706c0000726c0000746c0000766c0000786c00007a6c00007c6c00007e6c0000806c0000826c0000
+    m_ExpandedIDs: 000000005e6c0000606c0000626c0000646c0000666c0000686c00006a6c00006c6c00006e6c0000706c0000726c0000746c0000766c0000786c00007a6c00007c6c00007e6c0000806c0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -677,7 +677,7 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 0
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c45a00004c5a0000d85f0000f05e00004c5f0000a64a0100ec630100c2b80100c0b8010064bb010070bb01006abb010012ba010018ba01005ebb01007ce80000b2ec0000403c0200086602007e690000ce7f00001a690000d4f600005a0e010000000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -1134,9 +1134,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -5.3520603, y: 1.2580106, z: -0.20980948}
+    m_Target: {x: -5.533619, y: 2.1533895, z: 0.5621972}
     speed: 2
-    m_Value: {x: -5.3520603, y: 1.2580106, z: -0.20980948}
+    m_Value: {x: -5.533619, y: 2.1533895, z: 0.5621972}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1182,9 +1182,9 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.004260917, y: 0.99534184, z: -0.08079912, w: 0.05259978}
+    m_Target: {x: -0.015792742, y: 0.9643335, z: -0.25756508, w: -0.059092566}
     speed: 2
-    m_Value: {x: 0.004260877, y: 0.9953325, z: -0.08079836, w: 0.052599285}
+    m_Value: {x: -0.015792584, y: 0.9643238, z: -0.2575625, w: -0.059091974}
   m_Size:
     m_Target: 2.138121
     speed: 2

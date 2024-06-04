@@ -1,22 +1,39 @@
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Container : MonoBehaviour
 {
     bool reading = true;
-    int foundedObjects = 0;
+    List<Guid> foundedObjects = new();
     int invisiblObjects = 0;
     private void OnCollisionEnter(Collision collision)
     {
-        if(reading)
+        if (reading)
         {
-            if (collision.gameObject.GetComponent<ProximityDetector>() != null)
+            ProximityDetector proximityDetector = collision.gameObject.GetComponent<ProximityDetector>();
+            if (proximityDetector != null)
             {
-                collision.gameObject.SetActive(false);
-                foundedObjects++;
-                Debug.Log(foundedObjects + "/" + invisiblObjects);
-                if (foundedObjects == invisiblObjects)
+                Guid guid = proximityDetector.GetGuid();
+                bool isValid = true;
+                foreach (var foundedGuid in foundedObjects)
                 {
-                    reading = false;
+                    if (foundedGuid.Equals(guid))
+                    {
+                        isValid = false;
+                        break;
+                    }
+                }
+                if (isValid)
+                {
+                    collision.gameObject.SetActive(false);
+                    foundedObjects.Add(guid);
+                    Debug.Log(foundedObjects.Count + "/" + invisiblObjects);
+                    if (foundedObjects.Count == invisiblObjects)
+                    {
+                        reading = false;
+                        GameManager.Instance.ClearRoundFive();
+                    }
                 }
             }
         }
