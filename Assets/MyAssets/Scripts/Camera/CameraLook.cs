@@ -7,21 +7,19 @@ public class CameraLook : MonoBehaviour
     public Transform playerBody;
     float xRotation = 0;
 
-    void Start()
-    {
-        Cursor.lockState = CursorLockMode.Locked; // Use only mouse in game screen
-    }
-
     void Update()
     {
-        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
-        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
-        
-        xRotation -= mouseY;
-        xRotation = Mathf.Clamp(xRotation, -90f, 90); // Avoid total rotation in Axis Y
+        if(GameManager.Instance.CanMove())
+        {
+            float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
+            float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
 
-        transform.localRotation = Quaternion.Euler(xRotation, 0, 0);
+            xRotation -= mouseY;
+            xRotation = Mathf.Clamp(xRotation, -90f, 90); // Avoid total rotation in Axis Y
 
-        playerBody.Rotate(Vector3.up * mouseX);
+            transform.localRotation = Quaternion.Euler(xRotation, 0, 0);
+
+            playerBody.Rotate(Vector3.up * mouseX);
+        }
     }
 }

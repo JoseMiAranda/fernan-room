@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
+    private bool canMove = true;
+
     // UI Texts
     private GameTexts gameTexts;
     private static TextMeshProUGUI roundText;
@@ -95,6 +97,10 @@ public class GameManager : MonoBehaviour
         GoToRound(round);
     }
 
+    private void Start()
+    {
+        Cursor.lockState = CursorLockMode.Locked; // Use only mouse in game screen
+    }
 
     private void Update()
     {
@@ -347,6 +353,16 @@ public class GameManager : MonoBehaviour
         return round;
     }
 
+    public bool CanMove()
+    {
+        return canMove;
+    }
+
+    public void SetCanMove(bool canMove)
+    {
+        this.canMove = canMove;
+    }
+
     internal void ShowWarning()
     {
         warningText.text = gameTexts.Rounds[round].Error;
@@ -354,9 +370,14 @@ public class GameManager : MonoBehaviour
 
     private void TextsRound()
     {
-        roundText.text = gameTexts.Rounds[round].Level;
+        roundText.text = GetRoundText(round);
         warningText.text = "";
         guidanceText.text = gameTexts.Guidances.PressEToUseDashboard;
         proof = gameTexts.Rounds[round].Proof;
+    }
+
+    public string GetRoundText(int round)
+    {
+        return gameTexts.Rounds[round].Level;
     }
 }

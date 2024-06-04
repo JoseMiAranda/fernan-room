@@ -11,6 +11,7 @@ public class PickUpObj : MonoBehaviour
     private Gun gun;
     private Mirror mirror;
     private Note note;
+    private Computer computer;
 
     void Update()
     {
@@ -20,7 +21,7 @@ public class PickUpObj : MonoBehaviour
                 float pickUpDistance = 3f;
                if (Physics.Raycast(playerCameraTransform.position, playerCameraTransform.forward, out RaycastHit raycastHit, pickUpDistance, pickUpLayerMask))
                 {
-                    if(raycastHit.transform.TryGetComponent(out note)) // Read Note
+                    if(raycastHit.transform.TryGetComponent(out note)) // Read from Board
                     {
                         note.Read(GameManager.Instance.getProof(), GameManager.Instance.getSize());
                     } 
@@ -31,6 +32,10 @@ public class PickUpObj : MonoBehaviour
                     else if (raycastHit.transform.TryGetComponent(out mirror)) // Grab Mirror
                     {
                         mirror.Grab(gunGrabPoint);
+                    }
+                    else if (raycastHit.transform.TryGetComponent(out computer)) // Read from Computer
+                    {
+                        computer.Read();
                     }
                     else if(raycastHit.transform.TryGetComponent(out objectGrabbable)) // Grab Object
                     {
