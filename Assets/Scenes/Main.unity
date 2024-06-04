@@ -1278,6 +1278,37 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 52286bfe87fb66749a3c50bd33f61eb6, type: 3}
+--- !u!1 &134231732
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 134231733}
+  m_Layer: 0
+  m_Name: Container Respawn
+  m_TagString: ContainerRespawn
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &134231733
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 134231732}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -1, z: -0, w: -0.00000035762784}
+  m_LocalPosition: {x: 14.43, y: 0.022, z: -9.19}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1986746659}
+  m_LocalEulerAnglesHint: {x: 0, y: -180, z: 0}
 --- !u!4 &137506782 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 455826, guid: 01d0598bc959e1744a433317fbb1b0c7, type: 3}
@@ -14954,6 +14985,7 @@ MonoBehaviour:
   gun: {fileID: 3720300895354376899, guid: 7447402fcfab1e8468eb698f4156d5d0, type: 3}
   churro: {fileID: 8563719669238231595, guid: 5ecbbaf661e785e4d9f806132332fb77, type: 3}
   foodScanner: {fileID: 6457725450409641694, guid: 2d9bc6aaae774e0448018de09a5cacf1, type: 3}
+  invisivilityScanner: {fileID: 8059353456742785022, guid: ba1aac3f59e80694d840a8a094aea569, type: 3}
 --- !u!4 &1807997433 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4402626770144814, guid: a76d0962e5aaba2479107524e448f23d, type: 3}
@@ -16314,6 +16346,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1908027420}
+  - {fileID: 134231733}
   m_Father: {fileID: 438515462}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1996736842 stripped

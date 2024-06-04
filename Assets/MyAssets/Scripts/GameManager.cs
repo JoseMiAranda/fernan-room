@@ -28,6 +28,7 @@ public class GameManager : MonoBehaviour
     // Respawn Points
     Transform scannerRespawnPoint;
     Transform gunRespawnPoint;
+    Transform containerRespawnPoint;
 
     // All needed objects must be referenced in the script inspector. The objects passed are prefabs. If you delete them, you destroy the prefab in your system (loss of data).
     // All prefab objects must have a copy (objectInstance).
@@ -46,7 +47,7 @@ public class GameManager : MonoBehaviour
     private GameObject foodScannerInstance;
 
     // Round 4
-    private List<GameObject> bottleScanners = new List<GameObject>();
+    private readonly List<GameObject> bottleScanners = new List<GameObject>();
     private readonly Dictionary<string, string> teacherBottles = new()
     {
         { "Eladio", "Granade" },
@@ -55,10 +56,13 @@ public class GameManager : MonoBehaviour
     };
 
     // Round 5
-    private List<GameObject> objectGrabbables = new();
-    private List<Material> objectGrabbableMaterials = new();
-    private List<Material> customMaterials = new();
-    private List<int> changedObjectGrabbables = new();
+    private const int totalInvisibleObjects = 3;
+    public GameObject invisivilityScanner;
+    private GameObject invisivilityScannerInstance;
+    private readonly List<GameObject> objectGrabbables = new();
+    private readonly List<Material> objectGrabbableMaterials = new();
+    private readonly List<Material> customMaterials = new();
+    private readonly List<int> changedObjectGrabbables = new();
 
     private void Awake()
     {
@@ -66,6 +70,7 @@ public class GameManager : MonoBehaviour
 
         scannerRespawnPoint = GameObject.FindGameObjectWithTag("ScannerRespawn").GetComponent<Transform>();
         gunRespawnPoint = GameObject.FindGameObjectWithTag("Respawn").GetComponent<Transform>();
+        containerRespawnPoint = GameObject.FindGameObjectWithTag("ContainerRespawn").GetComponent<Transform>();
 
         // Take data from json. Info: https://www.newtonsoft.com/json/help/html/serializingjson.htm
         using (StreamReader streamReader = new(jsonPath))
@@ -178,7 +183,7 @@ public class GameManager : MonoBehaviour
         {
             carScanner.GetComponent<Transform>().localScale = new Vector3(0.1f, 1f, 0.1f); //! Test
             float scannerLenght = carScanner.GetComponent<MeshRenderer>().bounds.size.x;
-            Vector3 newPosition = scannerRespawnPoint.transform.position + new Vector3(count * (scannerLenght + 0.2f) - 1f, 0, 0);
+            Vector3 newPosition = scannerRespawnPoint.transform.position + new Vector3(count * (scannerLenght + 0.2f) - 1f, 0, 0); // Position between other bottle scanners
             bottleScanners.Add(Instantiate(carScanner, newPosition, scannerRespawnPoint.rotation));
             bottleScanners[count].GetComponent<Scanner>().Constructor(teacherBootle.Value, CheckBootleScanners, CheckBootleScanners);
             count++;
@@ -188,6 +193,8 @@ public class GameManager : MonoBehaviour
     public void RoundFive()
     {
         round = 5;
+        invisivilityScannerInstance = Instantiate(invisivilityScanner, containerRespawnPoint.position, containerRespawnPoint.rotation);
+        invisivilityScannerInstance.transform.Find("Collider").GetComponent<Container>().TotalInvisibleObjects(totalInvisibleObjects);
         currentSize = smallNoteSize;
         TextsRound();
         GetGrabableObjects();
@@ -196,7 +203,6 @@ public class GameManager : MonoBehaviour
 
     private void RandomInvisibleObjects()
     {
-        int total = 3;
         Transform player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         System.Random rnd = new();
         do
@@ -214,12 +220,12 @@ public class GameManager : MonoBehaviour
             if(isValid)
             {
                 changedObjectGrabbables.Add(rndIndex);
-                objectGrabbables[rndIndex].gameObject.layer = 8; // 8 = Proximity
+                objectGrabbables[rndIndex].gameObject.layer = 8; // 8 = Proximity, Main camera must have Proximity layer disabled
                 objectGrabbables[rndIndex].GetComponent<Renderer>().material = customMaterials[rndIndex];
                 ProximityDetector proximityDetector = objectGrabbables[rndIndex].AddComponent<ProximityDetector>();
                 proximityDetector.player = player;
             }
-            if (changedObjectGrabbables.Count == total)
+            if (changedObjectGrabbables.Count == totalInvisibleObjects)
             {
                 break;
             }
