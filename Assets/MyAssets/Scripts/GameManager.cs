@@ -187,6 +187,9 @@ public class GameManager : MonoBehaviour
 
     public void RoundFive()
     {
+        round = 5;
+        currentSize = smallNoteSize;
+        TextsRound();
         GetGrabableObjects();
         RandomInvisibleObjects();
     }
