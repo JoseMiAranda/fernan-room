@@ -32,7 +32,7 @@ public class Container : MonoBehaviour
                     if (foundedObjects.Count == invisiblObjects)
                     {
                         reading = false;
-                        GameManager.Instance.ClearRoundFive();
+                        GameManager.Instance.NextRound();
                     }
                 }
             }

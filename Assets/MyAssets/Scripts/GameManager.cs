@@ -7,6 +7,7 @@ using System.Collections.Generic;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
+    public static bool dev = false;
 
     private bool canMove = true;
 
@@ -66,6 +67,11 @@ public class GameManager : MonoBehaviour
     private readonly List<Material> customMaterials = new();
     private readonly List<int> changedObjectGrabbables = new();
 
+    // Round 6
+    private readonly string keyWord = "Odoo";
+    public GameObject computer;
+    private GameObject computerInstance;
+    public Canvas computerCanvas;
     private void Awake()
     {
         currentSize = mediumNoteSize;
@@ -112,36 +118,84 @@ public class GameManager : MonoBehaviour
                 i.resetTransform();
             }
         }
+        if(dev)
+        {
+            if (Input.GetKeyUp(KeyCode.P))
+            {
+                NextRound();
+            }
+        }
+    }
+
+    public void NextRound()
+    {
+        ClearRound(round);
+        round++;
+        GoToRound(round);
+    }
+
+    private void ClearRound(int round)
+    {
+        switch (round)
+        {
+            case 1:
+                ClearRoundOne();
+                break;
+            case 2:
+                ClearRoundTwo();
+                break;
+            case 3:
+                ClearRoundThree();
+                break;
+            case 4:
+                ClearRoundFour();
+                break;
+            case 5:
+                ClearRoundFive();
+                break;
+            default:
+                Debug.LogWarning("You have no round to clear");
+                break;
+
+        }
     }
 
     // Debuging
     private void GoToRound(int round) 
     {
-        if(round < 0 || round > 5) // Prevents errors when extracts game texts
-        {
-           this.round = 0;
-        }
         switch (round)
         {
             case 0:
+                TextsRound();
                 Introduction();
                 break;
             case 1:
+                TextsRound();
                 RoundOne(); 
                 break;
-            case 2: 
+            case 2:
+                TextsRound();
                 RoundTwo(); 
                 break;
-            case 3: 
+            case 3:
+                TextsRound();
                 RoundThree(); 
                 break;
-            case 4: 
+            case 4:
+                TextsRound();
                 RoundFour(); 
                 break;
-            case 5: 
+            case 5:
+                TextsRound();
                 RoundFive(); 
                 break;
+            case 6:
+                TextsRound();
+                RoundSix();
+                break;
             default:
+                this.round = 0; // Prevents errors when extracts game texts
+                TextsRound();
                 Introduction();
                 break;
                   
@@ -152,37 +206,29 @@ public class GameManager : MonoBehaviour
     public void Introduction()
     {
         currentSize = mediumNoteSize;
-        TextsRound();
     }
 
     public void RoundOne()
     {
-        round = 1;
         carScannerInstance = Instantiate(carScanner, scannerRespawnPoint.position, scannerRespawnPoint.rotation);
-        carScannerInstance.GetComponent<Scanner>().Constructor("Tezla", ClearRoundOne, ShowWarning);
+        carScannerInstance.GetComponent<Scanner>().Constructor("Tezla", NextRound, ShowWarning);
         currentSize = largeNoteSize;
-        TextsRound();
     }
 
     public void RoundTwo()
     {
-        round = 2;
         gunInstance = Instantiate(gun, gunRespawnPoint.position, gunRespawnPoint.rotation);
         currentSize = smallNoteSize;
-        TextsRound();
     }
 
     public void RoundThree()
     {
-        round = 3;
         foodScannerInstance = Instantiate(foodScanner, scannerRespawnPoint.position, scannerRespawnPoint.rotation);
         currentSize = smallNoteSize;
-        TextsRound();
     }
 
     public void RoundFour()
     {
-        round = 4;
         currentSize = mediumNoteSize;
         int count = 0;
         foreach (var teacherBootle in teacherBottles)
@@ -198,13 +244,17 @@ public class GameManager : MonoBehaviour
 
     public void RoundFive()
     {
-        round = 5;
         invisivilityScannerInstance = Instantiate(invisivilityScanner, containerRespawnPoint.position, containerRespawnPoint.rotation);
         invisivilityScannerInstance.transform.Find("Collider").GetComponent<Container>().TotalInvisibleObjects(totalInvisibleObjects);
         currentSize = smallNoteSize;
-        TextsRound();
         GetGrabableObjects();
         RandomInvisibleObjects();
+    }
+
+    public void RoundSix()
+    {
+        computerInstance = Instantiate(computer, scannerRespawnPoint.position, scannerRespawnPoint.rotation);
+        computerInstance.transform.Find("display").GetComponent<Computer>().Constructor(computerCanvas, "Hola muy buenos días :D");
     }
 
     private void RandomInvisibleObjects()
@@ -258,20 +308,17 @@ public class GameManager : MonoBehaviour
     public void ClearRoundOne()
     {
         Destroy(carScannerInstance);
-        RoundTwo();
     }
 
     public void ClearRoundTwo()
     {
         Destroy(gunInstance);
-        RoundThree();
     }
 
     public void ClearRoundThree()
     {
         PartyChurros();
         Destroy(foodScannerInstance);
-        RoundFour();
     }
 
     void ClearRoundFour()
@@ -281,7 +328,6 @@ public class GameManager : MonoBehaviour
         {
             Destroy(bottleScanner);
         }
-        RoundFive();
     }
 
     public void ClearRoundFive()
@@ -304,8 +350,7 @@ public class GameManager : MonoBehaviour
                 return;
             }
         }
-        // Round Five
-        ClearRoundFour();
+        NextRound();
     }
 
     private void PartyChurros()

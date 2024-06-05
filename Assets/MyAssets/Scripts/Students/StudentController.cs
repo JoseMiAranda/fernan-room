@@ -27,7 +27,7 @@ public class StudentController : MonoBehaviour
         SetAnimation(studentAnimationClip.Length - 1); // Death Animation
         if(isTarjet)
         {
-            GameManager.Instance.ClearRoundTwo();
+            GameManager.Instance.NextRound();
         }
     }
 }

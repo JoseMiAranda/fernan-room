@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Note : MonoBehaviour
@@ -27,7 +24,7 @@ public class Note : MonoBehaviour
         canvas.gameObject.SetActive(false); // Makes canvas invisible
         if (GameManager.Instance.getRound() == 0) // Check if we are in introduction
         {
-            GameManager.Instance.RoundOne();
+            GameManager.Instance.NextRound(); // Round 1
         }
     }
 }
