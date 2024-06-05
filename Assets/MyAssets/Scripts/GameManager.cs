@@ -7,7 +7,7 @@ using System.Collections.Generic;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
-    public static bool dev = false;
+    public bool dev = false;
 
     private bool canMove = true;
 
@@ -120,7 +120,7 @@ public class GameManager : MonoBehaviour
         }
         if(dev)
         {
-            if (Input.GetKeyUp(KeyCode.P))
+            if (Input.GetKeyUp(KeyCode.F1))
             {
                 NextRound();
             }
@@ -254,7 +254,7 @@ public class GameManager : MonoBehaviour
     public void RoundSix()
     {
         computerInstance = Instantiate(computer, scannerRespawnPoint.position, scannerRespawnPoint.rotation);
-        computerInstance.transform.Find("display").GetComponent<Computer>().Constructor(computerCanvas, "Hola muy buenos días :D");
+        computerInstance.transform.Find("display").GetComponent<Computer>().Constructor(computerCanvas, keyWord);
     }
 
     private void RandomInvisibleObjects()

@@ -5,32 +5,24 @@ public class Computer : MonoBehaviour
 {
     private Canvas canvas;
     private TMP_InputField inputField;
-    private TextMeshProUGUI error;
-    private TextMeshProUGUI roundText;
-    private string roundProof = "Test";
-    private string keyWord = "Odoo";
+    private string keyWord = "Test";
     private bool isReading = false;
- 
     private bool isCompleted = false;
 
     public void Read()
     {
-        //if(isCompleted == false)
-        //{
+        if(isCompleted == false)
+        {
+            isReading = true;
+            canvas.gameObject.SetActive(true);
+            GameManager.Instance.SetCanMove(false);
+            Cursor.lockState = CursorLockMode.Confined;
+            inputField = canvas.transform.GetChild(1).GetComponent<TMP_InputField>();
+            inputField.onEndEdit.AddListener(ValidateKeyWord);
 
-        //}
-        isReading = true;
-        canvas.gameObject.SetActive(true);
-        GameManager.Instance.SetCanMove(false);
-        Cursor.lockState = CursorLockMode.Confined;
-        TextMeshProUGUI proofText = canvas.transform.Find("Texts").GetChild(0).GetComponent<TextMeshProUGUI>();
-        //TextMeshProUGUI roundText = canvas.transform.Find("Texts").GetChild(1).GetComponent<TextMeshProUGUI>();
-        error = canvas.transform.Find("Texts").GetChild(2).GetComponent<TextMeshProUGUI>();
-        inputField = canvas.transform.GetChild(2).GetComponent<TMP_InputField>();
-        inputField.onEndEdit.AddListener(ValidateKeyWord);
-        // Change text of canvas
-        //roundText.text = roundProof;
-        proofText.text = roundProof;
+            // Change texts
+            inputField.transform.GetChild(0).transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = "Contraseña"; // placeholder
+        }
     }
 
     private void Update()
@@ -48,7 +40,7 @@ public class Computer : MonoBehaviour
         
         if(!s.Equals(keyWord))
         {
-            error.gameObject.SetActive(true);
+            // Error
         } else
         {
             Debug.Log("Lo has logrado!!!");
@@ -65,10 +57,9 @@ public class Computer : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
     }
 
-    internal void Constructor(Canvas canvas, string roundProof)
+    internal void Constructor(Canvas canvas, string keyWord)
     {
         this.canvas = canvas;
-        this.roundProof = roundProof;
-
+        this.keyWord = keyWord;
     }
 }
