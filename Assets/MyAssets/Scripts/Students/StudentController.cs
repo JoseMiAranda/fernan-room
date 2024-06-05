@@ -23,11 +23,14 @@ public class StudentController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        collider.enabled = false;
-        SetAnimation(studentAnimationClip.Length - 1); // Death Animation
-        if(isTarjet)
+        if(collision.gameObject.GetComponent<Bullet>() != null)
         {
-            GameManager.Instance.NextRound();
+            collider.enabled = false;
+            SetAnimation(studentAnimationClip.Length - 1); // Death Animation
+            if(isTarjet)
+            {
+                GameManager.Instance.NextRound();
+            }
         }
     }
 }

@@ -40,6 +40,7 @@ public class GameManager : MonoBehaviour
     private GameObject carScannerInstance;
 
     // Round 2
+    public GameObject students;
     public GameObject gun; 
     private GameObject gunInstance;
 
@@ -217,6 +218,7 @@ public class GameManager : MonoBehaviour
 
     public void RoundTwo()
     {
+        students.SetActive(true);
         gunInstance = Instantiate(gun, objectRespawnPoint.position, objectRespawnPoint.rotation);
         currentSize = smallNoteSize;
     }
@@ -313,6 +315,7 @@ public class GameManager : MonoBehaviour
 
     public void ClearRoundTwo()
     {
+        Destroy(students);
         Destroy(gunInstance);
     }
 
