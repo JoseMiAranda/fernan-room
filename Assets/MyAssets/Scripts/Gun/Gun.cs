@@ -36,6 +36,7 @@ public class Gun : MonoBehaviour
 
     public void Grab(GameObject grabPoint)
     {
+        // Asign gun to Player
         transform.parent = grabPoint.transform;
         Vector3 parentCenter = grabPoint.transform.position;
         transform.localPosition = Vector3.zero;
@@ -44,5 +45,8 @@ public class Gun : MonoBehaviour
         objectRigidBody.useGravity = false;
         objectCollider.enabled = false;
         gunGrabPoint = grabPoint;
+
+        // Delete particles
+        Destroy(this.transform.Find("KeyObject(Clone)").gameObject); 
     }
 }

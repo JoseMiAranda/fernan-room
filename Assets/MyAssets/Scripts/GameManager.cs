@@ -28,6 +28,9 @@ public class GameManager : MonoBehaviour
     // Debubing
     public int round = 0;
 
+    // Efects
+    public ParticleSystem keyObjectParticles;
+
     // Respawn Points
     Transform scannerRespawnPoint;
     Transform gunRespawnPoint;
@@ -43,6 +46,7 @@ public class GameManager : MonoBehaviour
     // Round 2
     public GameObject gun; 
     private GameObject gunInstance;
+    private ParticleSystem gunParticles;
 
     // Round 3
     public GameObject churro;
@@ -218,6 +222,8 @@ public class GameManager : MonoBehaviour
     public void RoundTwo()
     {
         gunInstance = Instantiate(gun, gunRespawnPoint.position, gunRespawnPoint.rotation);
+        gunParticles = Instantiate(keyObjectParticles, gunInstance.transform.position, gunInstance.transform.rotation);
+        gunParticles.transform.parent = gunInstance.transform;
         currentSize = smallNoteSize;
     }
 
