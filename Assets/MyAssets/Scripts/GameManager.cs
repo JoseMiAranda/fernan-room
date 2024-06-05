@@ -32,8 +32,7 @@ public class GameManager : MonoBehaviour
     public ParticleSystem keyObjectParticles;
 
     // Respawn Points
-    Transform scannerRespawnPoint;
-    Transform gunRespawnPoint;
+    Transform objectRespawnPoint;
     Transform containerRespawnPoint;
 
     // All needed objects must be referenced in the script inspector. The objects passed are prefabs. If you delete them, you destroy the prefab in your system (loss of data).
@@ -80,8 +79,7 @@ public class GameManager : MonoBehaviour
     {
         currentSize = mediumNoteSize;
 
-        scannerRespawnPoint = GameObject.FindGameObjectWithTag("ScannerRespawn").GetComponent<Transform>();
-        gunRespawnPoint = GameObject.FindGameObjectWithTag("Respawn").GetComponent<Transform>();
+        objectRespawnPoint = GameObject.FindGameObjectWithTag("ScannerRespawn").GetComponent<Transform>();
         containerRespawnPoint = GameObject.FindGameObjectWithTag("ContainerRespawn").GetComponent<Transform>();
 
         // Take data from json. Info: https://www.newtonsoft.com/json/help/html/serializingjson.htm
@@ -214,14 +212,14 @@ public class GameManager : MonoBehaviour
 
     public void RoundOne()
     {
-        carScannerInstance = Instantiate(carScanner, scannerRespawnPoint.position, scannerRespawnPoint.rotation);
+        carScannerInstance = Instantiate(carScanner, objectRespawnPoint.position, objectRespawnPoint.rotation);
         carScannerInstance.GetComponent<Scanner>().Constructor("Tezla", NextRound, ShowWarning);
         currentSize = largeNoteSize;
     }
 
     public void RoundTwo()
     {
-        gunInstance = Instantiate(gun, gunRespawnPoint.position, gunRespawnPoint.rotation);
+        gunInstance = Instantiate(gun, objectRespawnPoint.position, objectRespawnPoint.rotation);
         gunParticles = Instantiate(keyObjectParticles, gunInstance.transform.position, gunInstance.transform.rotation);
         gunParticles.transform.parent = gunInstance.transform;
         currentSize = smallNoteSize;
@@ -229,7 +227,7 @@ public class GameManager : MonoBehaviour
 
     public void RoundThree()
     {
-        foodScannerInstance = Instantiate(foodScanner, scannerRespawnPoint.position, scannerRespawnPoint.rotation);
+        foodScannerInstance = Instantiate(foodScanner, objectRespawnPoint.position, objectRespawnPoint.rotation);
         currentSize = smallNoteSize;
     }
 
@@ -241,8 +239,8 @@ public class GameManager : MonoBehaviour
         {
             carScanner.GetComponent<Transform>().localScale = new Vector3(0.1f, 1f, 0.1f); //! Test
             float scannerLenght = carScanner.GetComponent<MeshRenderer>().bounds.size.x;
-            Vector3 newPosition = scannerRespawnPoint.transform.position + new Vector3(count * (scannerLenght + 0.2f) - 1f, 0, 0); // Position between other bottle scanners
-            bottleScanners.Add(Instantiate(carScanner, newPosition, scannerRespawnPoint.rotation));
+            Vector3 newPosition = objectRespawnPoint.transform.position + new Vector3(count * (scannerLenght + 0.2f) - 1f, 0, 0); // Position between other bottle scanners
+            bottleScanners.Add(Instantiate(carScanner, newPosition, objectRespawnPoint.rotation));
             bottleScanners[count].GetComponent<Scanner>().Constructor(teacherBootle.Value, CheckBootleScanners, CheckBootleScanners);
             count++;
         }
@@ -259,7 +257,7 @@ public class GameManager : MonoBehaviour
 
     public void RoundSix()
     {
-        computerInstance = Instantiate(computer, scannerRespawnPoint.position, scannerRespawnPoint.rotation);
+        computerInstance = Instantiate(computer, objectRespawnPoint.position, objectRespawnPoint.rotation);
         computerInstance.transform.Find("display").GetComponent<Computer>().Constructor(computerCanvas, keyWord);
     }
 

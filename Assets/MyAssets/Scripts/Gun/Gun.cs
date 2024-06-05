@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Gun : MonoBehaviour
@@ -23,13 +21,13 @@ public class Gun : MonoBehaviour
     {
         if (gunGrabPoint != null) // When we grab the gun
         {
-            if(Input.GetKeyDown(KeyCode.Mouse0) && Time.time > shotRateTime)
+            if(Input.GetKeyDown(KeyCode.Mouse0) && Time.time > shotRateTime) // Press left mouse and shoot interval
             {
                 GameObject newBullet;
                 newBullet = Instantiate(bullet, spawnPoint.position, spawnPoint.rotation);
                 newBullet.GetComponent<Rigidbody>().AddForce(spawnPoint.forward * shotForce);
                 shotRateTime = Time.time + shotRate;
-                Destroy(newBullet,3);
+                newBullet.AddComponent<Bullet>().bullet = newBullet; // Destroys bullet on collision
             }
         }
     }
@@ -47,6 +45,10 @@ public class Gun : MonoBehaviour
         gunGrabPoint = grabPoint;
 
         // Delete particles
-        Destroy(this.transform.Find("KeyObject(Clone)").gameObject); 
+        GameObject particles = this.transform.Find("KeyObject(Clone)").gameObject;
+        if(particles != null)
+        {
+            Destroy(this.transform.Find("KeyObject(Clone)").gameObject); 
+        }
     }
 }
