@@ -4,18 +4,30 @@ using UnityEngine;
 
 public class FoodScanner : MonoBehaviour
 {
-    List<string> expectedIngredients = new() { "knife", "mushroom", "fish" };
+    List<string> expectedIngredients = new();
     List<ObjectGrabbable> ingredients = new();
     Collider sphereCollider;
 
-    public GameObject explosionEffect;
+    public ParticleSystem explosionEffect;
+    public ParticleSystem particles;
     public float radius = 5f;
     public float explosionForce = 70f;
+
+    public void Constrcutor(List<string> ingredients)
+    {
+        this.expectedIngredients = ingredients;
+    }
 
     private void Awake()
     {
         sphereCollider = GetComponent<Collider>();
         Debug.Log(sphereCollider == null);
+        if (particles != null)
+        {
+           particles = Instantiate(particles, transform.position, transform.rotation);
+           particles.transform.parent = transform;
+           particles.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f); // Fixing particles size
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -60,7 +72,7 @@ public class FoodScanner : MonoBehaviour
     {
         if (explosion)
         {
-            Instantiate(explosionEffect, transform.position, transform.rotation);
+            Destroy(Instantiate(explosionEffect, transform.position, transform.rotation), 3);
         }
         Collider[] colliders = Physics.OverlapSphere(transform.position, radius);
 

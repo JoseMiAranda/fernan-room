@@ -45,6 +45,7 @@ public class GameManager : MonoBehaviour
     private GameObject gunInstance;
 
     // Round 3
+    List<string> secretIngredients = new() { "knife", "mushroom", "fish" };
     public GameObject churro;
     public GameObject foodScanner;
     private GameObject foodScannerInstance;
@@ -226,6 +227,7 @@ public class GameManager : MonoBehaviour
     public void RoundThree()
     {
         foodScannerInstance = Instantiate(foodScanner, objectRespawnPoint.position, objectRespawnPoint.rotation);
+        foodScannerInstance.GetComponent<FoodScanner>().Constrcutor(secretIngredients);
         currentSize = smallNoteSize;
     }
 
