@@ -8,6 +8,8 @@ public class Gun : MonoBehaviour
 
     public Transform spawnPoint;
     public GameObject bullet;
+    public ParticleSystem particles;
+    private ParticleSystem particlesInstance;
     public float shotForce = 1500f;
     public float shotRate = 0.5f;
     private float shotRateTime = 0;
@@ -15,6 +17,11 @@ public class Gun : MonoBehaviour
     {
         objectRigidBody = GetComponent<Rigidbody>();
         objectCollider = GetComponent<Collider>();
+        if (particles != null)
+        {
+            particlesInstance = Instantiate(particles, transform.position, transform.rotation);
+            particlesInstance.transform.parent = transform;
+        }
     }
 
     private void Update()
@@ -45,10 +52,9 @@ public class Gun : MonoBehaviour
         gunGrabPoint = grabPoint;
 
         // Delete particles
-        GameObject particles = this.transform.Find("KeyObject(Clone)").gameObject;
-        if(particles != null)
+        if(particlesInstance != null)
         {
-            Destroy(this.transform.Find("KeyObject(Clone)").gameObject); 
+            Destroy(particlesInstance); 
         }
     }
 }

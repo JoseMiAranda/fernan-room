@@ -28,9 +28,6 @@ public class GameManager : MonoBehaviour
     // Debubing
     public int round = 0;
 
-    // Efects
-    public ParticleSystem keyObjectParticles;
-
     // Respawn Points
     Transform objectRespawnPoint;
     Transform containerRespawnPoint;
@@ -45,7 +42,6 @@ public class GameManager : MonoBehaviour
     // Round 2
     public GameObject gun; 
     private GameObject gunInstance;
-    private ParticleSystem gunParticles;
 
     // Round 3
     public GameObject churro;
@@ -65,6 +61,8 @@ public class GameManager : MonoBehaviour
     private const int totalInvisibleObjects = 3;
     public GameObject invisivilityScanner;
     private GameObject invisivilityScannerInstance;
+    public GameObject magicMirror;
+    private GameObject magicMirrorInstance;
     private readonly List<GameObject> objectGrabbables = new();
     private readonly List<Material> objectGrabbableMaterials = new();
     private readonly List<Material> customMaterials = new();
@@ -220,8 +218,6 @@ public class GameManager : MonoBehaviour
     public void RoundTwo()
     {
         gunInstance = Instantiate(gun, objectRespawnPoint.position, objectRespawnPoint.rotation);
-        gunParticles = Instantiate(keyObjectParticles, gunInstance.transform.position, gunInstance.transform.rotation);
-        gunParticles.transform.parent = gunInstance.transform;
         currentSize = smallNoteSize;
     }
 
@@ -248,6 +244,7 @@ public class GameManager : MonoBehaviour
 
     public void RoundFive()
     {
+        magicMirrorInstance = Instantiate(magicMirror, objectRespawnPoint.position, objectRespawnPoint.rotation);
         invisivilityScannerInstance = Instantiate(invisivilityScanner, containerRespawnPoint.position, containerRespawnPoint.rotation);
         invisivilityScannerInstance.transform.Find("Collider").GetComponent<Container>().TotalInvisibleObjects(totalInvisibleObjects);
         currentSize = smallNoteSize;

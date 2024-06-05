@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class Mirror : MonoBehaviour
 {
+    public ParticleSystem particles;
+    private ParticleSystem particlesInstance;
     private Transform grabPoint;
     private Rigidbody objectRigidBody;
     private Collider objectCollider;
@@ -12,11 +14,15 @@ public class Mirror : MonoBehaviour
     {
         objectRigidBody = GetComponent<Rigidbody>();
         objectCollider = GetComponent<Collider>();
+        if (particles != null)
+        {
+            particlesInstance = Instantiate(particles, this.transform.position, this.transform.rotation);
+        }
     }
 
     private void Update()
     {
-        if(grabPoint != null) // When the mirros is equiped
+        if(grabPoint != null) // When the mirror is equiped
         {
             if (Input.GetKeyDown(KeyCode.Mouse1))
             {
@@ -36,11 +42,20 @@ public class Mirror : MonoBehaviour
 
     public void Grab(GameObject grabPoint)
     {
+        this.grabPoint = grabPoint.transform;
+        // Asign mirror to Player
         transform.parent = grabPoint.transform;
-        ResetPosition();
+        Vector3 parentCenter = grabPoint.transform.position;
+        transform.localPosition = Vector3.zero;
+        transform.localRotation = Quaternion.identity;
         objectRigidBody.useGravity = false;
         objectCollider.enabled = false;
-        this.grabPoint = grabPoint.transform;
+
+        // Delete particles
+        if (particlesInstance != null)
+        {
+            Destroy(particlesInstance);
+        }
     }
 
     private void ResetPosition()
