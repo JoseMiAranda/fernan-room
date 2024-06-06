@@ -4,13 +4,14 @@ using UnityEngine;
 // Enums
 public enum Musics
 {
+    introduction,
     round_1,
     round_2,
     round_3,
     round_4,
     round_5,
     round_6,
-    applauses
+    the_end
 };
 
 public enum Sfxs
@@ -21,7 +22,7 @@ public enum Sfxs
     scream_1,
     scream_2,
     scream_3,
-    scream_4
+    scream_4,
 };
 
 
@@ -55,6 +56,7 @@ public class AudioManager : MonoBehaviour
         } else
         {
             Debug.Log("Playing " + music);
+            musicSource.loop = true;
             musicSource.clip = music;
             musicSource.Play();
         }

@@ -219,6 +219,7 @@ public class GameManager : MonoBehaviour
     // Rounds 
     public void Introduction()
     {
+        AudioManager.Instance.PlayMusic(Musics.introduction);
         currentSize = mediumNoteSize;
     }
 
@@ -283,6 +284,7 @@ public class GameManager : MonoBehaviour
 
     public void End() 
     {
+        AudioManager.Instance.PlayMusic(Musics.the_end);
         keyInstance = Instantiate(key, objectRespawnPoint.position, objectRespawnPoint.rotation);
     }
 

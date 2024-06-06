@@ -6,7 +6,7 @@ public class Container : MonoBehaviour
 {
     bool reading = true;
     List<Guid> foundedObjects = new();
-    int invisiblObjects = 0;
+    int invisiblObjects;
     private void OnCollisionEnter(Collision collision)
     {
         if (reading)
