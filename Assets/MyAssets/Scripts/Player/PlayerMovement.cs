@@ -38,6 +38,7 @@ public class PlayerMovement : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
             {
                 velocity.y = Mathf.Sqrt(jumpHeight * -2 * gravity); // Make Player jump
+                AudioManager.Instance.PlaySfx(Sfxs.jump);
             }
 
             if (Input.GetKeyDown(KeyCode.LeftControl))

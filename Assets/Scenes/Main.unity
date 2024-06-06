@@ -8350,6 +8350,56 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 424622fb2f5ecf54b87e7c616e7ec1dd, type: 3}
+--- !u!1 &911143689
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 911143690}
+  - component: {fileID: 911143691}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &911143690
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 911143689}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1603106872}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &911143691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 911143689}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d34c283085e59ba41a76a0cfd76c4fed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  musicSounds:
+  - {fileID: 8300000, guid: 560c90cfd87c3d541b1e8a7035a9334e, type: 3}
+  sfxSounds:
+  - {fileID: 8300000, guid: 6f9e289bcb6909246bb9784f3ee3daac, type: 3}
+  - {fileID: 8300000, guid: 2015840b933ad454a8e656788e735684, type: 3}
+  - {fileID: 8300000, guid: a0892b146a294234db72beb91ab141cf, type: 3}
 --- !u!4 &911178468 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4173873760860446, guid: c46afe706fb2cde4883f7afaeaa67a78, type: 3}
@@ -15346,6 +15396,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1806077066}
+  - {fileID: 911143690}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1631176044 stripped
@@ -16442,7 +16493,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dev: 1
-  round: 6
+  round: 3
   carScanner: {fileID: 8859883699109957869, guid: c69c2cb69f87e49419a77bff048efb6e, type: 3}
   students: {fileID: 1319358490}
   gun: {fileID: 3720300895354376899, guid: 7447402fcfab1e8468eb698f4156d5d0, type: 3}

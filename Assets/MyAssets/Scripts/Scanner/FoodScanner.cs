@@ -84,6 +84,7 @@ public class FoodScanner : MonoBehaviour
                 rb.AddExplosionForce(explosionForce * 10, transform.position, radius);
             }
         }
+        AudioManager.Instance.PlaySfx(Sfxs.explosion);
     }
 
     public List<ObjectGrabbable> Ingredients()

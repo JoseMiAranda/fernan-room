@@ -226,6 +226,7 @@ public class GameManager : MonoBehaviour
 
     public void RoundThree()
     {
+        AudioManager.Instance.PlayMusic(Musics.coocking);
         foodScannerInstance = Instantiate(foodScanner, objectRespawnPoint.position, objectRespawnPoint.rotation);
         foodScannerInstance.GetComponent<FoodScanner>().Constrcutor(secretIngredients);
         currentSize = smallNoteSize;

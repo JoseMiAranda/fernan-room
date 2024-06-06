@@ -33,6 +33,7 @@ public class Gun : MonoBehaviour
                 GameObject newBullet;
                 newBullet = Instantiate(bullet, spawnPoint.position, spawnPoint.rotation);
                 newBullet.GetComponent<Rigidbody>().AddForce(spawnPoint.forward * shotForce);
+                AudioManager.Instance.PlaySfx(Sfxs.shoot);
                 shotRateTime = Time.time + shotRate;
                 newBullet.AddComponent<Bullet>().bullet = newBullet; // Destroys bullet on collision
             }
