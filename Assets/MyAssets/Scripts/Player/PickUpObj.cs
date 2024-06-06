@@ -12,6 +12,7 @@ public class PickUpObj : MonoBehaviour
     private Mirror mirror;
     private Note note;
     private Computer computer;
+    private Key key;
 
     void Update()
     {
@@ -21,7 +22,11 @@ public class PickUpObj : MonoBehaviour
                 float pickUpDistance = 3f;
                if (Physics.Raycast(playerCameraTransform.position, playerCameraTransform.forward, out RaycastHit raycastHit, pickUpDistance, pickUpLayerMask))
                 {
-                    if(raycastHit.transform.TryGetComponent(out note)) // Read from Board
+                    if (raycastHit.transform.TryGetComponent(out objectGrabbable)) // Grab Object
+                    {
+                        objectGrabbable.Grab(objectGrabPointTransform);
+                    }
+                    else if (raycastHit.transform.TryGetComponent(out note)) // Read from Board
                     {
                         note.Read(GameManager.Instance.getProof(), GameManager.Instance.getSize());
                     } 
@@ -37,11 +42,9 @@ public class PickUpObj : MonoBehaviour
                     {
                         computer.Read();
                     }
-                    else if(raycastHit.transform.TryGetComponent(out objectGrabbable)) // Grab Object
-                    {
-                        objectGrabbable.Grab(objectGrabPointTransform);
+                    else if (raycastHit.transform.TryGetComponent(out key)) { // Take Key
+                        key.Grab(gunGrabPoint);
                     }
-                    
                 }
             }
             else

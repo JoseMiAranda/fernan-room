@@ -46,6 +46,7 @@ public class Computer : MonoBehaviour
             Debug.Log("Lo has logrado!!!");
             isCompleted = true;
             Unread();
+            GameManager.Instance.NextRound();
         }
     }
 

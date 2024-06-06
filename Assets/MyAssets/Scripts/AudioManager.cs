@@ -4,20 +4,30 @@ using UnityEngine;
 // Enums
 public enum Musics
 {
-    coocking
+    round_1,
+    round_2,
+    round_3,
+    round_4,
+    round_5,
+    round_6,
+    applauses
 };
 
 public enum Sfxs
 {
     jump,
     explosion,
-    shoot
+    shoot,
+    scream_1,
+    scream_2,
+    scream_3,
+    scream_4
 };
+
 
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager Instance;
-
     public AudioClip[] musicSounds, sfxSounds;
     private AudioSource musicSource, sfxSource;
 

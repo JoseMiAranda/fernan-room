@@ -75,6 +75,11 @@ public class GameManager : MonoBehaviour
     public GameObject computer;
     private GameObject computerInstance;
     public Canvas computerCanvas;
+
+    // End 
+    public GameObject key;
+    private GameObject keyInstance;
+    public GameObject door;
     private void Awake()
     {
         currentSize = mediumNoteSize;
@@ -155,6 +160,9 @@ public class GameManager : MonoBehaviour
             case 5:
                 ClearRoundFive();
                 break;
+            case 6:
+                ClearRoundSix();
+                break;
             default:
                 Debug.LogWarning("You have no round to clear");
                 break;
@@ -195,6 +203,10 @@ public class GameManager : MonoBehaviour
                 TextsRound();
                 RoundSix();
                 break;
+            case 7:
+                TextsRound();
+                End();
+                break;
             default:
                 this.round = 0; // Prevents errors when extracts game texts
                 TextsRound();
@@ -212,6 +224,7 @@ public class GameManager : MonoBehaviour
 
     public void RoundOne()
     {
+        AudioManager.Instance.PlayMusic(Musics.round_1);
         carScannerInstance = Instantiate(carScanner, objectRespawnPoint.position, objectRespawnPoint.rotation);
         carScannerInstance.GetComponent<Scanner>().Constructor("Tezla", NextRound, ShowWarning);
         currentSize = largeNoteSize;
@@ -219,6 +232,7 @@ public class GameManager : MonoBehaviour
 
     public void RoundTwo()
     {
+        AudioManager.Instance.PlayMusic(Musics.round_2);
         students.SetActive(true);
         gunInstance = Instantiate(gun, objectRespawnPoint.position, objectRespawnPoint.rotation);
         currentSize = smallNoteSize;
@@ -226,7 +240,7 @@ public class GameManager : MonoBehaviour
 
     public void RoundThree()
     {
-        AudioManager.Instance.PlayMusic(Musics.coocking);
+        AudioManager.Instance.PlayMusic(Musics.round_3);
         foodScannerInstance = Instantiate(foodScanner, objectRespawnPoint.position, objectRespawnPoint.rotation);
         foodScannerInstance.GetComponent<FoodScanner>().Constrcutor(secretIngredients);
         currentSize = smallNoteSize;
@@ -234,6 +248,7 @@ public class GameManager : MonoBehaviour
 
     public void RoundFour()
     {
+        AudioManager.Instance.PlayMusic(Musics.round_4);
         currentSize = mediumNoteSize;
         int count = 0;
         foreach (var teacherBootle in teacherBottles)
@@ -249,6 +264,7 @@ public class GameManager : MonoBehaviour
 
     public void RoundFive()
     {
+        AudioManager.Instance.PlayMusic(Musics.round_5);
         magicMirrorInstance = Instantiate(magicMirror, objectRespawnPoint.position, objectRespawnPoint.rotation);
         invisivilityScannerInstance = Instantiate(invisivilityScanner, containerRespawnPoint.position, containerRespawnPoint.rotation);
         invisivilityScannerInstance.transform.Find("Collider").GetComponent<Container>().TotalInvisibleObjects(totalInvisibleObjects);
@@ -259,9 +275,27 @@ public class GameManager : MonoBehaviour
 
     public void RoundSix()
     {
+        AudioManager.Instance.PlayMusic(Musics.round_6);
         currentSize = smallNoteSize;
         computerInstance = Instantiate(computer, objectRespawnPoint.position, objectRespawnPoint.rotation);
         computerInstance.transform.Find("display").GetComponent<Computer>().Constructor(computerCanvas, keyWord);
+    }
+
+    public void End() 
+    {
+        keyInstance = Instantiate(key, objectRespawnPoint.position, objectRespawnPoint.rotation);
+    }
+
+    public void QuitGame()
+    {
+        // save any game data here
+        #if UNITY_EDITOR
+        // Application.Quit() does not work in the editor so
+        // UnityEditor.EditorApplication.isPlaying need to be set to false to end the game
+            UnityEditor.EditorApplication.isPlaying = false;
+        #else
+            Application.Quit();
+        #endif
     }
 
     private void RandomInvisibleObjects()
@@ -347,6 +381,12 @@ public class GameManager : MonoBehaviour
             objectGrabbables[index].GetComponent<Renderer>().material = objectGrabbableMaterials[index];
         }
         Destroy(invisivilityScannerInstance);
+        Destroy(magicMirrorInstance);
+    }
+
+    public void ClearRoundSix()
+    {
+        Destroy(computerInstance);
     }
 
     private void CheckBootleScanners()
