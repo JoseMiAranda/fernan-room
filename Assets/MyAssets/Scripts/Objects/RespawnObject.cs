@@ -2,15 +2,16 @@ using UnityEngine;
 
 public class RespawnObject : MonoBehaviour
 {
-    private Transform respawnPoint;
+    public Transform objectRespawnPoint;
+    public Transform playerRespawnPoint;
 
-    private void Awake()
+    private void OnCollisionStay(Collision collision)
     {
-        respawnPoint = GameObject.FindGameObjectWithTag("Respawn").GetComponent<Transform>();
-    }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        collision.transform.position = respawnPoint.position;
+        if (collision.gameObject.layer == 7) { // 7 == Player
+            collision.transform.position = playerRespawnPoint.position;
+        } else
+        {
+            collision.transform.position = objectRespawnPoint.position;
+        }
     }
 }
