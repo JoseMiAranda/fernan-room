@@ -71,7 +71,7 @@ public class GameManager : MonoBehaviour
     private readonly List<int> changedObjectGrabbables = new();
 
     // Round 6
-    private readonly string keyWord = "Odoo";
+    private readonly string keyWord = "dash";
     public GameObject computer;
     private GameObject computerInstance;
     public Canvas computerCanvas;
@@ -258,6 +258,7 @@ public class GameManager : MonoBehaviour
 
     public void RoundSix()
     {
+        currentSize = smallNoteSize;
         computerInstance = Instantiate(computer, objectRespawnPoint.position, objectRespawnPoint.rotation);
         computerInstance.transform.Find("display").GetComponent<Computer>().Constructor(computerCanvas, keyWord);
     }
