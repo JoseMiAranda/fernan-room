@@ -8,7 +8,7 @@ public class Scanner : MonoBehaviour
     private bool readingObject = false;
     private bool isFound;
 
-    // Actions == Methods in other languages
+    // Actions == Methods in other programmign languages
     private Action onSuccess;
     private Action onFail;
 

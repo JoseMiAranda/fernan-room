@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class PickUpObj : MonoBehaviour
 {
-    [SerializeField] public Transform playerCameraTransform;
-    [SerializeField] public Transform objectGrabPointTransform;
-    [SerializeField] public GameObject gunGrabPoint;
-    [SerializeField] public LayerMask pickUpLayerMask;
+    public Transform playerCameraTransform;
+    public Transform objectGrabPointTransform;
+    public GameObject gunGrabPoint;
+    public LayerMask pickUpLayerMask;
 
     private ObjectGrabbable objectGrabbable;
     private Gun gun;

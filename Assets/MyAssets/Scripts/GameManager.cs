@@ -107,6 +107,9 @@ public class GameManager : MonoBehaviour
         {
             Debug.LogWarning("There are one more Game Managers!");
         }
+        if (!dev){
+            round = 0;
+        }
         GoToRound(round);
     }
 

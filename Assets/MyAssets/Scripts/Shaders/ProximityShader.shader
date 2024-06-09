@@ -1,10 +1,15 @@
 Shader "Custom/Proximity" {
     Properties {
-        _MainTex ("Base (RGB)", 2D) = "white" {} // Regular object texture 
-        _PlayerPosition ("Player Position", vector) = (0,0,0,0) // The location of the player - will be set by script
-        _VisibleDistance ("Visibility Distance", float) = 3.0 // How close does the player have to be to make object visible
-        _OutlineWidth ("Outline Width", float) = 0.3 // Used to add an outline around visible area a la Mario Galaxy - http://www.youtube.com/watch?v=91raP59am9U
-        _OutlineColour ("Outline Colour", color) = (1.0,1.0,0.0,1.0) // Colour of the outline
+        // Regular object texture 
+        _MainTex ("Base (RGB)", 2D) = "white" {} 
+        // The location of the player - will be set by script
+        _PlayerPosition ("Player Position", vector) = (0,0,0,0)
+        // How close does the player have to be to make object visible
+        _VisibleDistance ("Visibility Distance", float) = 3.0
+        // Used to add an outline around visible area a la Mario Galaxy - http://www.youtube.com/watch?v=91raP59am9U
+        _OutlineWidth ("Outline Width", float) = 0.3 
+        // Colour of the outline
+        _OutlineColour ("Outline Colour", color) = (1.0,1.0,0.0,1.0) 
     }
     SubShader {
         Tags { "RenderType"="Transparent" "Queue"="Transparent"}
