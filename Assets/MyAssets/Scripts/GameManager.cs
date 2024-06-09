@@ -269,6 +269,7 @@ public class GameManager : MonoBehaviour
     public void RoundFive()
     {
         AudioManager.Instance.PlayMusic(Musics.round_5);
+        ShowWarning("0/" + totalInvisibleObjects);
         magicMirrorInstance = Instantiate(magicMirror, objectRespawnPoint.position, objectRespawnPoint.rotation);
         invisivilityScannerInstance = Instantiate(invisivilityScanner, containerRespawnPoint.position, containerRespawnPoint.rotation);
         invisivilityScannerInstance.transform.Find("Collider").GetComponent<Container>().TotalInvisibleObjects(totalInvisibleObjects);
@@ -288,6 +289,7 @@ public class GameManager : MonoBehaviour
     public void End() 
     {
         AudioManager.Instance.PlayMusic(Musics.the_end);
+        currentSize = mediumNoteSize;
         keyInstance = Instantiate(key, objectRespawnPoint.position, objectRespawnPoint.rotation);
     }
 
@@ -396,14 +398,32 @@ public class GameManager : MonoBehaviour
 
     private void CheckBootleScanners()
     {
-        foreach (var bottleScanner in bottleScanners)
+        int cont = 0;
+        bool allAreCorrect = true;
+        for (int i = 0; i < bottleScanners.Count; i++)
         {
-            if(!bottleScanner.GetComponent<Scanner>().IsFound())
+            Scanner s = bottleScanners[i].GetComponent<Scanner>();
+            if (s.HasObject())
             {
-                return;
+                cont++;
+                if (!s.IsFound())
+                {
+                    allAreCorrect = false;
+                }
             }
         }
-        NextRound();
+        
+        if(cont == bottleScanners.Count - 1 && allAreCorrect)
+        {
+            NextRound();
+        }
+        else if(cont == bottleScanners.Count - 1 && !allAreCorrect)
+        {
+            ShowWarning();
+        }  else
+        {
+            ShowWarning("");
+        }
     }
 
     private void PartyChurros()
@@ -464,6 +484,11 @@ public class GameManager : MonoBehaviour
     internal void ShowWarning()
     {
         warningText.text = gameTexts.Rounds[round].Error;
+    }
+
+    internal void ShowWarning(string warning)
+    {
+        warningText.text = warning;
     }
 
     private void TextsRound()

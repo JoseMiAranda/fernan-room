@@ -7,6 +7,7 @@ public class Container : MonoBehaviour
     bool reading = true;
     List<Guid> foundedObjects = new();
     int invisiblObjects;
+
     private void OnCollisionEnter(Collision collision)
     {
         if (reading)
@@ -28,7 +29,7 @@ public class Container : MonoBehaviour
                 {
                     collision.gameObject.SetActive(false);
                     foundedObjects.Add(guid);
-                    Debug.Log(foundedObjects.Count + "/" + invisiblObjects);
+                    GameManager.Instance.ShowWarning(foundedObjects.Count + "/" + invisiblObjects);
                     if (foundedObjects.Count == invisiblObjects)
                     {
                         reading = false;

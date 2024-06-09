@@ -7,6 +7,7 @@ public class Scanner : MonoBehaviour
     private string findedObj;
     private bool readingObject = false;
     private bool isFound;
+    private bool hasObject = false;
 
     // Actions == Methods in other programmign languages
     private Action onSuccess;
@@ -30,6 +31,7 @@ public class Scanner : MonoBehaviour
 
                 if (objectGrabbable != null)
                 {
+                    hasObject = true;
                     readingObject = true;
                     if (objectGrabbable.value == findedObj)
                     {
@@ -50,6 +52,8 @@ public class Scanner : MonoBehaviour
 
     private void OnCollisionExit(Collision collision) // Validate the last object
     {
+        Debug.Log("Adios");
+        hasObject = false;
         if (findedObj != null)
         {
             if (!readingObject)
@@ -58,6 +62,7 @@ public class Scanner : MonoBehaviour
 
                 if (objectGrabbable != null)
                 {
+                    
                     if (objectGrabbable.value == findedObj)
                     {
                         isFound = false;
@@ -76,5 +81,10 @@ public class Scanner : MonoBehaviour
     internal bool IsFound()
     {
         return isFound;
+    }
+
+    internal bool HasObject()
+    {
+        return hasObject;
     }
 }

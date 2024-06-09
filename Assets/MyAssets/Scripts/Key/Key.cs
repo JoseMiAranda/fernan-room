@@ -18,6 +18,7 @@ public class Key : MonoBehaviour
         {
             particlesInstance = Instantiate(particles, transform.position, transform.rotation);
             particlesInstance.transform.parent = gameObject.transform;
+            particlesInstance.transform.localScale = Vector3.one;
         }
     }
 

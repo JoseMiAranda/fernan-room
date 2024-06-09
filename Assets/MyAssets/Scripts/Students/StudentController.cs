@@ -34,6 +34,9 @@ public class StudentController : MonoBehaviour
             if(isTarjet)
             {
                 GameManager.Instance.NextRound();
+            } else
+            {
+                GameManager.Instance.ShowWarning();
             }
         }
     }

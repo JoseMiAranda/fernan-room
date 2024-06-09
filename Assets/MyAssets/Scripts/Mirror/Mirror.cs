@@ -17,6 +17,8 @@ public class Mirror : MonoBehaviour
         if (particles != null)
         {
             particlesInstance = Instantiate(particles, this.transform.position, this.transform.rotation);
+            particlesInstance.transform.parent = gameObject.transform;
+            particlesInstance.transform.localScale = Vector3.one;
         }
     }
 
