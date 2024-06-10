@@ -21,6 +21,7 @@ public class Gun : MonoBehaviour
         {
             particlesInstance = Instantiate(particles, transform.position, transform.rotation);
             particlesInstance.transform.parent = transform;
+            particlesInstance.transform.localScale = Vector3.one;
         }
     }
 
