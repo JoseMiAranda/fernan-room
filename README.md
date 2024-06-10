@@ -3,7 +3,7 @@
 
 ## Instalaciones
 
-Se necesitan tener instalado:
+Se necesita tener instalado:
 -   [Unity 2022.3.21f1](https://unity.com/es/releases/editor/archive)  
 -   [UnityHub](https://unity.com/es/unity-hub)
 
@@ -30,7 +30,7 @@ Pulsamos el botón de Play:
 <br><br>
 
 ### Exportarlo:
-Vamos Build Settings
+Vamos a Build Settings
 
 <img src="documentation/build-settings.png" width="300px" alt="build settings">
 <br><br>
