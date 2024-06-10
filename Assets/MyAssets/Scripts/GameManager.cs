@@ -398,32 +398,14 @@ public class GameManager : MonoBehaviour
 
     private void CheckBootleScanners()
     {
-        int cont = 0;
-        bool allAreCorrect = true;
-        for (int i = 0; i < bottleScanners.Count; i++)
+        foreach (var bottleScanner in bottleScanners)
         {
-            Scanner s = bottleScanners[i].GetComponent<Scanner>();
-            if (s.HasObject())
+            if (!bottleScanner.GetComponent<Scanner>().IsFound())
             {
-                cont++;
-                if (!s.IsFound())
-                {
-                    allAreCorrect = false;
-                }
+                return;
             }
         }
-        
-        if(cont == bottleScanners.Count - 1 && allAreCorrect)
-        {
-            NextRound();
-        }
-        else if(cont == bottleScanners.Count - 1 && !allAreCorrect)
-        {
-            ShowWarning();
-        }  else
-        {
-            ShowWarning("");
-        }
+        NextRound();
     }
 
     private void PartyChurros()
