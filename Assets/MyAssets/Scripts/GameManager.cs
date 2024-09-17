@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
     private static TextMeshProUGUI roundText;
     private static TextMeshProUGUI guidanceText;
     private static TextMeshProUGUI warningText;
-    private string jsonPath = @"D:\UnityVR\fernan-room\Assets\Data\Jsons\game_texts.json";
+    private string jsonPath = "/Jsons/game_texts";
     private string proof = "Proof";
 
     // Font sizes
@@ -88,7 +88,7 @@ public class GameManager : MonoBehaviour
         containerRespawnPoint = GameObject.FindGameObjectWithTag("ContainerRespawn").GetComponent<Transform>();
 
         // Take data from json. Info: https://www.newtonsoft.com/json/help/html/serializingjson.htm
-        using (StreamReader streamReader = new(jsonPath))
+        using (StreamReader streamReader = new(Path.Combine(Application.streamingAssetsPath, "Jsons/game_texts.json")))
         using (JsonTextReader jsonReader = new(streamReader))
         {
             JsonSerializer serializer = new JsonSerializer();
