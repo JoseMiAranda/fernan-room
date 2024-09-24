@@ -1,7 +1,4 @@
 using UnityEngine;
-using TMPro;
-using System.IO;
-using Newtonsoft.Json;
 using System.Collections.Generic;
 
 public class GameManager : MonoBehaviour
@@ -11,19 +8,8 @@ public class GameManager : MonoBehaviour
 
     private bool canMove = true;
 
-    // UI Texts
-    private GameTexts gameTexts;
-    private static TextMeshProUGUI roundText;
-    private static TextMeshProUGUI guidanceText;
-    private static TextMeshProUGUI warningText;
-    private string jsonPath = "/Jsons/game_texts";
-    private string proof = "Proof";
-
-    // Font sizes
-    private float currentSize;
-    private readonly float largeNoteSize = 36f; // For short proofs
-    private readonly float mediumNoteSize = 24f; // For normal proof
-    private readonly float smallNoteSize = 18; // For large proofs
+    // Managers
+    private TextManager textManager;
 
     // Debubing
     public int round = 0;
@@ -41,7 +27,7 @@ public class GameManager : MonoBehaviour
 
     // Round 2
     public GameObject students;
-    public GameObject gun; 
+    public GameObject gun;
     private GameObject gunInstance;
 
     // Round 3
@@ -82,32 +68,21 @@ public class GameManager : MonoBehaviour
     public GameObject door;
     private void Awake()
     {
-        currentSize = mediumNoteSize;
+        textManager = new TextManager();
 
         objectRespawnPoint = GameObject.FindGameObjectWithTag("ScannerRespawn").GetComponent<Transform>();
         containerRespawnPoint = GameObject.FindGameObjectWithTag("ContainerRespawn").GetComponent<Transform>();
 
-        // Take data from json. Info: https://www.newtonsoft.com/json/help/html/serializingjson.htm
-        using (StreamReader streamReader = new(Path.Combine(Application.streamingAssetsPath, "Jsons/game_texts.json")))
-        using (JsonTextReader jsonReader = new(streamReader))
-        {
-            JsonSerializer serializer = new JsonSerializer();
-            gameTexts = serializer.Deserialize<GameTexts>(jsonReader);
-        }
-
-        // Obtain Text canvas
-        roundText = GameObject.FindWithTag("Round").GetComponent<TextMeshProUGUI>();
-        guidanceText = GameObject.FindWithTag("Guidance").GetComponent<TextMeshProUGUI>();
-        warningText = GameObject.FindWithTag("Warning").GetComponent<TextMeshProUGUI>();
-
         if (Instance == null) // Singleton pattern
         {
             Instance = this;
-        } else
+        }
+        else
         {
             Debug.LogWarning("There are one more Game Managers!");
         }
-        if (!dev){
+        if (!dev)
+        {
             round = 0;
         }
         GoToRound(round);
@@ -128,7 +103,7 @@ public class GameManager : MonoBehaviour
                 i.resetTransform();
             }
         }
-        if(dev)
+        if (dev)
         {
             if (Input.GetKeyUp(KeyCode.F1))
             {
@@ -174,86 +149,77 @@ public class GameManager : MonoBehaviour
     }
 
     // Debuging
-    private void GoToRound(int round) 
+    private void GoToRound(int round)
     {
         switch (round)
         {
             case 0:
-                TextsRound();
                 Introduction();
                 break;
             case 1:
-                TextsRound();
-                RoundOne(); 
+                RoundOne();
                 break;
             case 2:
-                TextsRound();
-                RoundTwo(); 
+                RoundTwo();
                 break;
             case 3:
-                TextsRound();
-                RoundThree(); 
+                RoundThree();
                 break;
             case 4:
-                TextsRound();
-                RoundFour(); 
+                RoundFour();
                 break;
             case 5:
-                TextsRound();
-                RoundFive(); 
+                RoundFive();
                 break;
             case 6:
-                TextsRound();
                 RoundSix();
                 break;
             case 7:
-                TextsRound();
                 End();
                 break;
             default:
                 this.round = 0; // Prevents errors when extracts game texts
-                TextsRound();
                 Introduction();
                 break;
-                  
+
         }
     }
 
     // Rounds 
     public void Introduction()
     {
+        textManager.ShowTextsRound(round);
         AudioManager.Instance.PlayMusic(Musics.introduction);
-        currentSize = mediumNoteSize;
     }
 
     public void RoundOne()
     {
+        textManager.ShowTextsRound(round);
         AudioManager.Instance.PlayMusic(Musics.round_1);
         carScannerInstance = Instantiate(carScanner, objectRespawnPoint.position, objectRespawnPoint.rotation);
-        carScannerInstance.GetComponent<Scanner>().Constructor("Tezla", NextRound, ShowWarning);
-        currentSize = largeNoteSize;
+        carScannerInstance.GetComponent<Scanner>().Constructor("Tezla", NextRound, () => { ShowWarning(); });
     }
 
     public void RoundTwo()
     {
+        textManager.ShowTextsRound(round);
         AudioManager.Instance.PlayMusic(Musics.round_2);
         students.SetActive(true);
         gunInstance = Instantiate(gun, objectRespawnPoint.position, objectRespawnPoint.rotation);
-        currentSize = smallNoteSize;
     }
 
     public void RoundThree()
     {
+        textManager.ShowTextsRound(round);
         AudioManager.Instance.PlayMusic(Musics.round_3);
         foodScannerInstance = Instantiate(foodScanner, objectRespawnPoint.position, objectRespawnPoint.rotation);
         foodScannerInstance.GetComponent<FoodScanner>().Constrcutor(secretIngredients);
-        currentSize = smallNoteSize;
     }
 
     public void RoundFour()
     {
+        textManager.ShowTextsRound(round);
         AudioManager.Instance.PlayMusic(Musics.round_4);
-        currentSize = mediumNoteSize;
         int count = 0;
         foreach (var teacherBootle in teacherBottles)
         {
@@ -268,41 +234,40 @@ public class GameManager : MonoBehaviour
 
     public void RoundFive()
     {
+        textManager.ShowTextsRound(round);
         AudioManager.Instance.PlayMusic(Musics.round_5);
-        ShowWarning("0/" + totalInvisibleObjects);
         magicMirrorInstance = Instantiate(magicMirror, objectRespawnPoint.position, objectRespawnPoint.rotation);
         invisivilityScannerInstance = Instantiate(invisivilityScanner, containerRespawnPoint.position, containerRespawnPoint.rotation);
         invisivilityScannerInstance.transform.Find("Collider").GetComponent<Container>().TotalInvisibleObjects(totalInvisibleObjects);
-        currentSize = smallNoteSize;
         GetGrabableObjects();
         RandomInvisibleObjects();
     }
 
     public void RoundSix()
     {
+        textManager.ShowTextsRound(round);
         AudioManager.Instance.PlayMusic(Musics.round_6);
-        currentSize = smallNoteSize;
         computerInstance = Instantiate(computer, objectRespawnPoint.position, objectRespawnPoint.rotation);
         computerInstance.transform.Find("display").GetComponent<Computer>().Constructor(computerCanvas, keyWord);
     }
 
-    public void End() 
+    public void End()
     {
+        textManager.ShowTextsRound(round);
         AudioManager.Instance.PlayMusic(Musics.the_end);
-        currentSize = mediumNoteSize;
         keyInstance = Instantiate(key, objectRespawnPoint.position, objectRespawnPoint.rotation);
     }
 
     public void QuitGame()
     {
         // save any game data here
-        #if UNITY_EDITOR
+#if UNITY_EDITOR
         // Application.Quit() does not work in the editor so
         // UnityEditor.EditorApplication.isPlaying need to be set to false to end the game
-            UnityEditor.EditorApplication.isPlaying = false;
-        #else
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
             Application.Quit();
-        #endif
+#endif
     }
 
     private void RandomInvisibleObjects()
@@ -321,7 +286,7 @@ public class GameManager : MonoBehaviour
                     break;
                 }
             }
-            if(isValid)
+            if (isValid)
             {
                 changedObjectGrabbables.Add(rndIndex);
                 objectGrabbables[rndIndex].gameObject.layer = 8; // 8 = Proximity, Main camera must have Proximity layer disabled
@@ -433,19 +398,24 @@ public class GameManager : MonoBehaviour
         foodScannerInstance.GetComponent<FoodScanner>().Explode(false);
     }
 
+    public void ShowWarning(string warning)
+    {
+        textManager.ShowWarning(warning);
+    }
+
     public void ResolvePuzzle()
     {
-        guidanceText.text = gameTexts.Guidances.ResolvePuzzle;
+        textManager.ResolvePuzzle();
     }
 
     public string getProof()
     {
-        return proof;
+        return textManager.Proof(round);
     }
 
     public float getSize()
     {
-        return currentSize;
+        return textManager.Size(round);
     }
 
     public float getRound()
@@ -463,26 +433,8 @@ public class GameManager : MonoBehaviour
         this.canMove = canMove;
     }
 
-    internal void ShowWarning()
+    void ShowWarning()
     {
-        warningText.text = gameTexts.Rounds[round].Error;
-    }
-
-    internal void ShowWarning(string warning)
-    {
-        warningText.text = warning;
-    }
-
-    private void TextsRound()
-    {
-        roundText.text = GetRoundText(round);
-        warningText.text = "";
-        guidanceText.text = gameTexts.Guidances.PressEToUseDashboard;
-        proof = gameTexts.Rounds[round].Proof;
-    }
-
-    public string GetRoundText(int round)
-    {
-        return gameTexts.Rounds[round].Level;
+        textManager.ShowWarning(round);
     }
 }

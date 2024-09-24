@@ -24,9 +24,9 @@ public class FoodScanner : MonoBehaviour
         Debug.Log(sphereCollider == null);
         if (particles != null)
         {
-           particles = Instantiate(particles, transform.position, transform.rotation);
-           particles.transform.parent = transform;
-           particles.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f); // Fixing particles size
+            particles = Instantiate(particles, transform.position, transform.rotation);
+            particles.transform.parent = transform;
+            particles.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f); // Fixing particles size
         }
     }
 
@@ -44,7 +44,7 @@ public class FoodScanner : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if(GameManager.Instance.getRound() == 3)
+        if (GameManager.Instance.getRound() == 3)
         {
             if (ingredients.Contains(other.gameObject.GetComponent<ObjectGrabbable>())) // Avoid double exit
             {
@@ -61,9 +61,10 @@ public class FoodScanner : MonoBehaviour
         }
         if (!expectedIngredients.All(ingredient => ingredients.Any(readedIngredient => readedIngredient.value == ingredient))) // Checks ingredients are correct
         {
-            GameManager.Instance.ShowWarning();
+            //GameManager.Instance.ShowWarning();
             Explode(true);
-        } else
+        }
+        else
         {
             GameManager.Instance.NextRound();
         }
