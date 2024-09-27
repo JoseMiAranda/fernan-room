@@ -46,14 +46,46 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    public void PlayMusic(Musics musicEnum)
+    public void PlayMusicRound(int round)
+    {
+        switch (round)
+        {
+            case 1:
+                PlayMusic(Musics.round_1);
+                break;
+            case 2:
+                PlayMusic(Musics.round_2);
+                break;
+            case 3:
+                PlayMusic(Musics.round_3);
+                break;
+            case 4:
+                PlayMusic(Musics.round_4);
+                break;
+            case 5:
+                PlayMusic(Musics.round_5);
+                break;
+            case 6:
+                PlayMusic(Musics.round_6);
+                break;
+            case 7:
+                PlayMusic(Musics.the_end);
+                break;
+            default:
+                PlayMusic(Musics.introduction);
+                break;
+        }
+    }
+
+    internal void PlayMusic(Musics musicEnum)
     {
         string musicName = musicEnum.ToString();
         AudioClip music = Array.Find(musicSounds, x => x.name == musicName);
-        if(music == null)
+        if (music == null)
         {
             Debug.LogWarning("Music Not Found");
-        } else
+        }
+        else
         {
             Debug.Log("Playing " + music);
             musicSource.loop = true;

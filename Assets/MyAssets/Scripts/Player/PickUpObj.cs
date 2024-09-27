@@ -7,59 +7,68 @@ public class PickUpObj : MonoBehaviour
     public GameObject gunGrabPoint;
     public LayerMask pickUpLayerMask;
 
-    private ObjectGrabbable objectGrabbable;
-    private Gun gun;
-    private Mirror mirror;
-    private Note note;
-    private Computer computer;
-    private Key key;
+    private IInteractable currentInteractable;
+    private IReadable currentReadable;
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.E)) {
-            if(objectGrabbable == null && note == null) { 
-                // Not carring a object or reading, try to grab or read
-                float pickUpDistance = 3f;
-               if (Physics.Raycast(playerCameraTransform.position, playerCameraTransform.forward, out RaycastHit raycastHit, pickUpDistance, pickUpLayerMask))
-                {
-                    if (raycastHit.transform.TryGetComponent(out objectGrabbable)) // Grab Object
-                    {
-                        objectGrabbable.Grab(objectGrabPointTransform);
-                    }
-                    else if (raycastHit.transform.TryGetComponent(out note)) // Read from Board
-                    {
-                        note.Read(GameManager.Instance.getProof(), GameManager.Instance.getSize());
-                    } 
-                    else if (raycastHit.transform.TryGetComponent(out gun)) // Take Gun
-                    {
-                        gun.Grab(gunGrabPoint);
-                    }
-                    else if (raycastHit.transform.TryGetComponent(out mirror)) // Grab Mirror
-                    {
-                        mirror.Grab(gunGrabPoint);
-                    }
-                    else if (raycastHit.transform.TryGetComponent(out computer)) // Read from Computer
-                    {
-                        computer.Read();
-                    }
-                    else if (raycastHit.transform.TryGetComponent(out key)) { // Take Key
-                        key.Grab(gunGrabPoint);
-                    }
-                }
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            if (currentInteractable == null && currentReadable == null)
+            {
+                TryToInteract();
             }
             else
             {
-                if(note != null)
+                HandleDropOrUnread();
+            }
+        }
+    }
+
+    private void TryToInteract()
+    {
+        float pickUpDistance = 3f;
+        if (Physics.Raycast(playerCameraTransform.position, playerCameraTransform.forward, out RaycastHit raycastHit, pickUpDistance, pickUpLayerMask))
+        {
+            if (raycastHit.transform.TryGetComponent(out IInteractable interactable))
+            {
+                currentInteractable = interactable;
+                if (interactable is ObjectGrabbable)
                 {
-                    note.UnRead();
-                    note = null;
+                    interactable.Interact(objectGrabPointTransform);
                 }
-                else // Currently carrying something, drop
+                else
                 {
-                    objectGrabbable.Drop();
-                    objectGrabbable = null;
+                    interactable.Interact(gunGrabPoint.transform); // Gun, Mirror & Key
                 }
             }
+            else if (raycastHit.transform.TryGetComponent(out IReadable readable)) // Board & Computer
+            {
+                GameManager.Instance.SetCanMove(false);
+                if (readable is Note)
+                {
+                    currentReadable = readable;
+                }
+                readable.Read();
+            }
+        }
+    }
+
+    private void HandleDropOrUnread()
+    {
+        if (currentReadable != null && currentReadable is not Computer)
+        {
+            GameManager.Instance.SetCanMove(true);
+            currentReadable.UnRead();
+            currentReadable = null;
+        }
+        else if (currentInteractable != null)
+        {
+            if (currentInteractable is ObjectGrabbable grabbable)
+            {
+                grabbable.Drop();
+            }
+            currentInteractable = null;
         }
     }
 }

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class ObjectGrabbable : MonoBehaviour
+public class ObjectGrabbable : MonoBehaviour, IInteractable
 {
     private Vector3 initialPosition;
     private Quaternion initialRotation;
@@ -15,7 +15,7 @@ public class ObjectGrabbable : MonoBehaviour
     private float lerpSpeed = 10f;
     private float minDistance = 1f;
     private float maxDistance = 3f;
-    private float currentDistance = 2f; 
+    private float currentDistance = 2f;
 
     private void Awake()
     {
@@ -26,7 +26,12 @@ public class ObjectGrabbable : MonoBehaviour
         objectRigidBody = GetComponent<Rigidbody>();
     }
 
-    public void Grab(Transform objectGrabPointTransform)
+    public void Interact(Transform grabPoint)
+    {
+        Grab(grabPoint);
+    }
+
+    internal void Grab(Transform objectGrabPointTransform)
     {
         this.objectGrabPointTransform = objectGrabPointTransform;
         objectRigidBody.useGravity = false;
@@ -43,17 +48,17 @@ public class ObjectGrabbable : MonoBehaviour
         if (objectGrabPointTransform != null)
         {
             float scrollWheelValue = Input.GetAxis("Mouse ScrollWheel"); // Obtain 0.1 or -0.1 depending on scroll mouse wheel
-            
+
             currentDistance += scrollWheelValue * scrollSensitivity * Time.deltaTime;
 
-            currentDistance = Mathf.Clamp(currentDistance, minDistance, maxDistance); 
+            currentDistance = Mathf.Clamp(currentDistance, minDistance, maxDistance);
 
             Camera mainCamera = Camera.main;
             Vector3 targetPosition = mainCamera.transform.position + mainCamera.transform.forward * currentDistance;
             Vector3 newPosition = Vector3.Lerp(transform.position, targetPosition, Time.deltaTime * lerpSpeed);
 
             objectRigidBody.MovePosition(newPosition);
-        } 
+        }
     }
 
     public void resetTransform()
@@ -67,4 +72,5 @@ public class ObjectGrabbable : MonoBehaviour
         objectRigidBody.velocity = Vector3.zero;
         objectRigidBody.angularVelocity = Vector3.zero;
     }
+
 }

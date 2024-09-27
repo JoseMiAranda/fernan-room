@@ -1,9 +1,9 @@
 using UnityEngine;
 
-public class Gun : MonoBehaviour
+public class Gun : MonoBehaviour, IInteractable
 {
     private Rigidbody objectRigidBody;
-    private GameObject gunGrabPoint;
+    private Transform gunGrabPoint;
     private Collider objectCollider;
 
     public Transform spawnPoint;
@@ -29,7 +29,7 @@ public class Gun : MonoBehaviour
     {
         if (gunGrabPoint != null) // When we grab the gun
         {
-            if(Input.GetKeyDown(KeyCode.Mouse0) && Time.time > shotRateTime) // Press left mouse and shoot interval
+            if (Input.GetKeyDown(KeyCode.Mouse0) && Time.time > shotRateTime) // Press left mouse and shoot interval
             {
                 GameObject newBullet;
                 newBullet = Instantiate(bullet, spawnPoint.position, spawnPoint.rotation);
@@ -39,8 +39,7 @@ public class Gun : MonoBehaviour
             }
         }
     }
-
-    public void Grab(GameObject grabPoint)
+    public void Interact(Transform grabPoint)
     {
         // Asign gun to Player
         transform.parent = grabPoint.transform;
@@ -53,9 +52,9 @@ public class Gun : MonoBehaviour
         gunGrabPoint = grabPoint;
 
         // Delete particles
-        if(particlesInstance != null)
+        if (particlesInstance != null)
         {
-            Destroy(particlesInstance); 
+            Destroy(particlesInstance);
         }
     }
 }

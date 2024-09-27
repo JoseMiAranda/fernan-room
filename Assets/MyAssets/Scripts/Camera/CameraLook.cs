@@ -9,7 +9,7 @@ public class CameraLook : MonoBehaviour
 
     void Update()
     {
-        if(GameManager.Instance.CanMove())
+        if (GameManager.Instance.CanMove())
         {
             float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
             float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;

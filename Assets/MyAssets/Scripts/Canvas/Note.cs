@@ -1,30 +1,31 @@
 using TMPro;
 using UnityEngine;
 
-public class Note : MonoBehaviour
+public class Note : MonoBehaviour, IReadable
 {
     public Canvas canvas;
     private TextMeshProUGUI noteText;
-
     private void Awake()
     {
         canvas.gameObject.SetActive(false);
         noteText = canvas.transform.Find("NoteImage").GetChild(0).GetComponent<TextMeshProUGUI>(); // get NoteText
     }
 
-    public void Read(string text, float size)
+    public void Read()
     {
-        noteText.fontSize = size;
-        noteText.text = text;
-        canvas.gameObject.SetActive(true); // Makes canvas visible
-        GameManager.Instance.ResolvePuzzle();
+        noteText.fontSize = TextManager.Instance.Size(GameManager.Instance.round);
+        noteText.text = TextManager.Instance.Proof(GameManager.Instance.round);
+        canvas.gameObject.SetActive(true);
     }
-
-    public void UnRead() {
-        canvas.gameObject.SetActive(false); // Makes canvas invisible
-        if (GameManager.Instance.getRound() == 0) // Check if we are in introduction
+    public void UnRead()
+    {
+        canvas.gameObject.SetActive(false);
+        if (GameManager.Instance.round == 0)
         {
-            GameManager.Instance.NextRound(); // Round 1
+            GameManager.Instance.NextRound();
+        } else
+        {
+            TextManager.Instance.ShowGuidance(Guidance.resolve);
         }
     }
 }

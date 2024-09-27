@@ -44,12 +44,9 @@ public class FoodScanner : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (GameManager.Instance.getRound() == 3)
+        if (ingredients.Contains(other.gameObject.GetComponent<ObjectGrabbable>())) // Avoid double exit
         {
-            if (ingredients.Contains(other.gameObject.GetComponent<ObjectGrabbable>())) // Avoid double exit
-            {
-                ingredients.Remove(other.gameObject.GetComponent<ObjectGrabbable>());
-            }
+            ingredients.Remove(other.gameObject.GetComponent<ObjectGrabbable>());
         }
     }
 

@@ -1,11 +1,9 @@
 using UnityEngine;
 
-public class Key : MonoBehaviour
+public class Key : MonoBehaviour, IInteractable
 {
-
     private Rigidbody objectRigidBody;
-    private Collider objectCollider;
-    private GameObject keyGrabPoint;
+    private Transform keyGrabPoint;
 
     public ParticleSystem particles;
     private ParticleSystem particlesInstance;
@@ -13,7 +11,6 @@ public class Key : MonoBehaviour
     private void Awake()
     {
         objectRigidBody = GetComponent<Rigidbody>();
-        objectCollider = GetComponent<Collider>();
         if (particles != null)
         {
             particlesInstance = Instantiate(particles, transform.position, transform.rotation);
@@ -22,14 +19,21 @@ public class Key : MonoBehaviour
         }
     }
 
-    public void Grab(GameObject grabPoint)
+    private void Update()
+    {
+        if (keyGrabPoint != null)
+        {
+            transform.localPosition = Vector3.zero;
+            transform.localRotation = Quaternion.identity;
+            transform.Rotate(-3.234f, -5.2f, 3);
+        }
+    }
+
+    public void Interact(Transform grabPoint)
     {
         // Asign key to Player
         transform.parent = grabPoint.transform;
         Vector3 parentCenter = grabPoint.transform.position;
-        transform.localPosition = Vector3.zero;
-        transform.localRotation = Quaternion.identity;
-        transform.Rotate(-3.234f, -5.2f, 3);
         objectRigidBody.useGravity = false;
         this.keyGrabPoint = grabPoint;
 
@@ -37,6 +41,14 @@ public class Key : MonoBehaviour
         if (particlesInstance != null)
         {
             Destroy(particlesInstance);
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Door")
+        {
+            GameManager.Instance.NextRound();
         }
     }
 }

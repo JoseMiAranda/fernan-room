@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Mirror : MonoBehaviour
+public class Mirror : MonoBehaviour, IInteractable
 {
     public ParticleSystem particles;
     private ParticleSystem particlesInstance;
@@ -24,7 +24,7 @@ public class Mirror : MonoBehaviour
 
     private void Update()
     {
-        if(grabPoint != null) // When the mirror is equiped
+        if (grabPoint != null) // When the mirror is equiped
         {
             if (Input.GetKeyDown(KeyCode.Mouse1))
             {
@@ -41,8 +41,7 @@ public class Mirror : MonoBehaviour
             }
         }
     }
-
-    public void Grab(GameObject grabPoint)
+    public void Interact(Transform grabPoint)
     {
         this.grabPoint = grabPoint.transform;
         // Asign mirror to Player

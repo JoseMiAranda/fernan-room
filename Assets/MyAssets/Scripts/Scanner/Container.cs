@@ -29,7 +29,7 @@ public class Container : MonoBehaviour
                 {
                     collision.gameObject.SetActive(false);
                     foundedObjects.Add(guid);
-                    GameManager.Instance.ShowWarning(foundedObjects.Count + "/" + invisiblObjects);
+                    TextManager.Instance.ShowWarning(foundedObjects.Count + "/" + invisiblObjects);
                     if (foundedObjects.Count == invisiblObjects)
                     {
                         reading = false;
