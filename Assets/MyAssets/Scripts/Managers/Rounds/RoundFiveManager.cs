@@ -29,6 +29,7 @@ public class RoundFiveManager : MonoBehaviour, IRoundObserver
             invisivilityScannerInstance.transform.Find("Collider").GetComponent<Container>().TotalInvisibleObjects(totalInvisibleObjects);
             GetGrabableObjects();
             RandomInvisibleObjects();
+            TextManager.Instance.ShowWarning("0 / " + totalInvisibleObjects);
         }
     }
 

@@ -6,6 +6,7 @@ public class Computer : MonoBehaviour, IReadable
     private Canvas canvas;
     private TMP_InputField inputField;
     private string keyWord = "Test";
+    private bool isReading = true;
 
     internal void Constructor(Canvas canvas, string keyWord)
     {
@@ -24,7 +25,6 @@ public class Computer : MonoBehaviour, IReadable
     public void Read()
     {
         canvas.gameObject.SetActive(true);
-        //GameManager.Instance.SetCanMove(false);
         Cursor.lockState = CursorLockMode.Confined;
         inputField = canvas.transform.GetChild(1).GetComponent<TMP_InputField>();
         inputField.onSubmit.AddListener(ValidateKeyWord);
@@ -42,12 +42,18 @@ public class Computer : MonoBehaviour, IReadable
 
     public void ValidateKeyWord(string s)
     {
+        if (!isReading)
+        {
+            return;
+        }
+
         if (!s.Equals(keyWord))
         {
             TextManager.Instance.ShowWarning(6);
         }
         else
         {
+            isReading = false;
             GameManager.Instance.NextRound();
         }
     }
