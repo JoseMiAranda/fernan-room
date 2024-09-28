@@ -1468,6 +1468,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8d238f680a16254486f428fffc188ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  materials:
+  - {fileID: 2100000, guid: 56a76adbc400bf94aa95d4871ff1c26f, type: 2}
+  - {fileID: 2100000, guid: f48c8c7350e5f1a4080fd25ac0437d65, type: 2}
+  - {fileID: 2100000, guid: 62b92d1dcd1438947a55aa2cd7bc3b39, type: 2}
   drikScanner: {fileID: 8859883699109957869, guid: c69c2cb69f87e49419a77bff048efb6e, type: 3}
   objectRespawnPoint: {fileID: 1541235868}
 --- !u!1001 &128566745
@@ -3765,6 +3769,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed3f09a24f257984ba3ea253550bc04d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  material: {fileID: 2100000, guid: 8f91cba44d5908747883e08687e0105d, type: 2}
   carScanner: {fileID: 8859883699109957869, guid: c69c2cb69f87e49419a77bff048efb6e, type: 3}
   objectRespawnPoint: {fileID: 1541235868}
 --- !u!4 &340029341 stripped
@@ -18447,7 +18452,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDev: 1
-  round: 7
+  round: 4
 --- !u!4 &1807997433 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4402626770144814, guid: a76d0962e5aaba2479107524e448f23d, type: 3}

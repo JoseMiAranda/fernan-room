@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class RoundFourManager : MonoBehaviour, IRoundObserver
 {
+    public List<Material> materials = new ();
     public GameObject drikScanner;
     public Transform objectRespawnPoint;
 
-    private readonly List<GameObject> bottleScanners = new List<GameObject>();
+    private readonly List<GameObject> bottleScanners = new();
     private readonly Dictionary<string, string> teacherBottles = new()
          {
              { "Eladio", "Granade" },
@@ -31,6 +32,11 @@ public class RoundFourManager : MonoBehaviour, IRoundObserver
                 float scannerLenght = drikScanner.GetComponent<MeshRenderer>().bounds.size.x;
                 Vector3 newPosition = objectRespawnPoint.transform.position + new Vector3(count * (scannerLenght + 0.2f) - 1f, 0, 0); // Position between other bottle scanners
                 bottleScanners.Add(Instantiate(drikScanner, newPosition, objectRespawnPoint.rotation));
+                if(materials[count].name == teacherBootle.Key)
+                {
+                    Renderer renderer = bottleScanners[count].GetComponent<Renderer>();
+                    renderer.material = materials[count];
+                }
                 Scanner bootleScanner = bottleScanners[count].GetComponent<Scanner>();
                 bootleScanner.Tags = new List<string> { teacherBootle.Value };
                 bootleScanner.OnSuccess = CheckBootleScanners;

@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class RoundOneManager : MonoBehaviour, IRoundObserver
 {
+    public Material material;
     public GameObject carScanner;
     private GameObject carScannerInstance;
     public Transform objectRespawnPoint;
@@ -17,6 +18,13 @@ public class RoundOneManager : MonoBehaviour, IRoundObserver
         if (round == 1)
         {
             carScannerInstance = Instantiate(carScanner, objectRespawnPoint.position, objectRespawnPoint.rotation);
+            Renderer renderer = carScannerInstance.GetComponent<Renderer>();
+
+            if (renderer != null && material != null)
+            {
+                renderer.material = material;
+            }
+
             Scanner scanner = carScannerInstance.GetComponent<Scanner>();
             scanner.Tags = new List<string> { "Tezla" };
             scanner.OnSuccess = () =>
