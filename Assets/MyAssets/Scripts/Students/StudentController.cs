@@ -36,7 +36,7 @@ public class StudentController : MonoBehaviour
                 GameManager.Instance.NextRound();
             } else
             {
-                //GameManager.Instance.ShowWarning();
+                TextManager.Instance.ShowWarning(2);
             }
         }
     }

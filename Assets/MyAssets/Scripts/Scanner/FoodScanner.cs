@@ -58,7 +58,7 @@ public class FoodScanner : MonoBehaviour
         }
         if (!expectedIngredients.All(ingredient => ingredients.Any(readedIngredient => readedIngredient.value == ingredient))) // Checks ingredients are correct
         {
-            //GameManager.Instance.ShowWarning();
+            TextManager.Instance.ShowWarning(3);
             Explode(true);
         }
         else
