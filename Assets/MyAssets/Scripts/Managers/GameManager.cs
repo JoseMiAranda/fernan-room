@@ -36,7 +36,7 @@ public class GameManager : MonoBehaviour
                 i.resetTransform();
             }
         }
-        else if (Input.GetKeyDown(KeyCode.F1))
+        else if (isDev && Input.GetKeyDown(KeyCode.F1))
         {
             NextRound();
         }
