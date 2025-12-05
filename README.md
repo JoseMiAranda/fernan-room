@@ -116,7 +116,9 @@ Decargue o clone el repositorio. Si clona el repositorio, asegúrate de tener in
 
 ```cmd
 git clone https://github.com/JoseMiAranda/fernan-room.git
+cd fernan-room
 git lfs install
+git lfs pull
 git config --global core.autocrlf true
 ```
 
