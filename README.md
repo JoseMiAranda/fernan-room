@@ -9,6 +9,8 @@
 - [¿Cómo lo descargarlo?](#cómo-lo-descargarlo)
 - [¿Cómo modificar el proyecto?](#cómo-modificar-el-proyecto)
 - [¿Cómo exportarlo?](#cómo-exportarlo)
+  - [Ordenador](#ordenador)
+  - [Web](#web)
 - [Recursos](#recursos)
 
 ## Galería
@@ -161,15 +163,24 @@ Una vez abierto, aparecerá un mundo vacío, para acceder al mapa del aula acced
 
 ## ¿Cómo exportarlo?
 
+### Ordenador
+
 Dirígete a **File > Build Settings**
 
 <img src="documentation/build-settings.png" width="300px" alt="build settings">
 <br><br>
 <img src="documentation/build.png" width="500px" alt="build">
 <br><br>
-Seleccione la ruta donde se generaá el build.
+Seleccione la ruta donde se generará el build.
 <br><br>
 <img src="documentation/game.png" width="500px" alt="game">
+
+### Web
+
+Dirígete a **File > Build Settings**
+
+<img src="documentation/build-settings.png" width="300px" alt="build settings">
+
 
 ## Recursos
 
