@@ -6,6 +6,7 @@ public class RoundFiveManager : MonoBehaviour, IRoundObserver
     public Transform objectRespawnPoint;
     public Transform containerRespawnPoint;
     private const int totalInvisibleObjects = 3;
+    public GameObject useToolCanvas;
     public GameObject invisivilityScanner;
     private GameObject invisivilityScannerInstance;
     public GameObject magicMirror;
@@ -24,6 +25,7 @@ public class RoundFiveManager : MonoBehaviour, IRoundObserver
     {
         if (round == 5)
         {
+            useToolCanvas.SetActive(true);
             magicMirrorInstance = Instantiate(magicMirror, objectRespawnPoint.position, objectRespawnPoint.rotation);
             invisivilityScannerInstance = Instantiate(invisivilityScanner, containerRespawnPoint.position, containerRespawnPoint.rotation);
             invisivilityScannerInstance.transform.Find("Collider").GetComponent<Container>().TotalInvisibleObjects(totalInvisibleObjects);
@@ -37,6 +39,7 @@ public class RoundFiveManager : MonoBehaviour, IRoundObserver
     {
         if (round == 5 && magicMirrorInstance != null && invisivilityScannerInstance != null)
         {
+            useToolCanvas.SetActive(false);
             foreach (int index in changedObjectGrabbables)
             {
                 objectGrabbables[index].SetActive(true);

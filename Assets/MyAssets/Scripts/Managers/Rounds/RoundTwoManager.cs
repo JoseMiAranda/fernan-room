@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class RoundTwoManager : MonoBehaviour, IRoundObserver
 {
+    public GameObject useToolCanvas;
     public GameObject students;
     public GameObject gun;
     private GameObject gunInstance;
@@ -16,6 +17,7 @@ public class RoundTwoManager : MonoBehaviour, IRoundObserver
     {
         if (round == 2)
         {
+            useToolCanvas.SetActive(true);
             students.SetActive(true);
             gunInstance = Instantiate(gun, objectRespawnPoint.position, objectRespawnPoint.rotation);
         }
@@ -25,6 +27,7 @@ public class RoundTwoManager : MonoBehaviour, IRoundObserver
     {
         if (round == 2 && students != null && gunInstance != null)
         {
+            useToolCanvas.SetActive(false);
             Destroy(students);
             Destroy(gunInstance);
         }
