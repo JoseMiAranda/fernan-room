@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -20,10 +21,19 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void Start()
+    private IEnumerator Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
-        StartRound();
+        yield return TextManager.Initialize();
+
+        if (TextManager.IsReady)
+        {
+            StartRound();
+        }
+        else
+        {
+            Debug.LogError("Game could not start: text data failed to load.");
+        }
     }
 
     private void Update()
