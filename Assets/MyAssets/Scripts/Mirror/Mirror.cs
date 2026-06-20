@@ -26,7 +26,7 @@ public class Mirror : MonoBehaviour, IInteractable
     {
         if (grabPoint != null) // When the mirror is equiped
         {
-            if (Input.GetKeyDown(KeyCode.Mouse1))
+            if (Input.GetKeyDown(KeyCode.Mouse0))
             {
                 isLooking = !isLooking;
                 if (isLooking)
