@@ -8,6 +8,13 @@ public class MainMenu : MonoBehaviour
     public GameObject letsStartMenu;
     public GameObject resourcesMenu;
     public GameObject mainMenu;
+    public GameObject quitButton;
+
+    void Start()
+    {
+        if (quitButton != null && Application.platform == RuntimePlatform.WebGLPlayer)
+            quitButton.SetActive(false);
+    }
 
     public void OpenLestsStartMenu() 
     {
@@ -29,7 +36,11 @@ public class MainMenu : MonoBehaviour
 
     public void QuitGame()
     {
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
         Application.Quit();
+#endif
     }
 
     public void PlayGame()
