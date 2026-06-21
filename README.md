@@ -180,7 +180,64 @@ Seleccione la ruta donde se generará el build.
 Dirígete a **File > Build Settings**
 
 <img src="documentation/build-settings.png" width="300px" alt="build settings">
+<br><br>
+Asegurar que tienes como compresión para web 
+<br><br>
+<img src="documentation/ensure-brotli.png" width="500px" alt="ensure brotli">
+<br><br>
+Hacer el build
+<br><br>
+<img src="documentation/build-web.png" width="500px" alt="build web">
+<br><br>
+Seleccione la ruta donde se generará el build.
+<br><br>
+<img src="documentation/game-web.png" width="500px" alt="game web">
+<br><br>
+Para dspliegue en vercel añadir el siguiente vercel.json al mismo nivel que index.html
+<br><br>
 
+```json
+{
+  "headers": [
+    {
+      "source": "/(.*)\\.br",
+      "headers": [
+        {
+          "key": "Content-Encoding",
+          "value": "br"
+        }
+      ]
+    },
+    {
+      "source": "/(.*)\\.framework\\.js\\.br",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/javascript"
+        }
+      ]
+    },
+    {
+      "source": "/(.*)\\.wasm\\.br",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/wasm"
+        }
+      ]
+    },
+    {
+      "source": "/(.*)\\.data\\.br",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/octet-stream"
+        }
+      ]
+    }
+  ]
+}
+```
 
 ## Recursos
 
